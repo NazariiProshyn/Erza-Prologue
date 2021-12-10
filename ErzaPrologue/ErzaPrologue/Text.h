@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 class Text
 {
+public:
 	Text()  = default;
 	~Text() = default;
 	void setSize(int size) { text.setCharacterSize(size); }
