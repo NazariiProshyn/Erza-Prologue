@@ -156,6 +156,7 @@
     <ClCompile Include="LvlsHandler.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Text.cpp" />
     <ClCompile Include="Textrure.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +164,7 @@
     <ClInclude Include="Lvl.h" />
     <ClInclude Include="LvlsHandler.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="Textrure.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
