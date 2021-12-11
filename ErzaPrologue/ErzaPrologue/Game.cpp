@@ -10,7 +10,7 @@ void Game::Run()
 {
     
         sf::RenderWindow window(sf::VideoMode(NSParametrs::windowWidth, NSParametrs::windowHeight), 
-            "Erza:prologue",sf::Style::Default);//Use Style::FullScreen
+            "Erza:prologue",sf::Style::Fullscreen);//Use Style::FullScreen
 
 
         while (window.isOpen())
@@ -18,12 +18,25 @@ void Game::Run()
             sf::Event event;
             while (window.pollEvent(event))
             {
-                if (event.type == sf::Event::Closed)
+                if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) 
+                {
                     window.close();
+                }
+                    
             }
             window.clear();
 
             window.draw(lvlsHandler.getSprite());
+
+            for (size_t i = 0; i < lvlsHandler.getNumOfAddItems(); ++i)
+            {
+                window.draw(lvlsHandler.getAddText(i).getString());
+            }
+
+            for(size_t i = 0; i < lvlsHandler.getNumOfItems(); ++i)
+            {
+                window.draw(lvlsHandler.getText(i).getString());
+            }
 
             window.display();
         }

@@ -8,6 +8,6 @@ public:
 	~Game() = default;
 	void Run();
 private:
-	LvlsHandler lvlsHandler;
+	LvlsHandler lvlsHandler; 
 };
 
