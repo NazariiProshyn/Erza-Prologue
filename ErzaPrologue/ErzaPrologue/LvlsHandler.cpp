@@ -99,22 +99,27 @@ Text LvlsHandler::getAddText(size_t num) const
 
 void LvlsHandler::eventHandler(const sf::Event& event)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || 
+		sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || 
+		sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || 
+		sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 		keyUp();
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || 
+		sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
 		keyDown();
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && 
+		activeLvl == static_cast<int>(EListOfLvls::MENULVL)) {
 		keyEnter(menu.getNumOfActiveText());
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
