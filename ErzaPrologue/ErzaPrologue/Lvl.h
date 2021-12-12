@@ -13,6 +13,7 @@ public:
 
 	size_t getNumOfItems()        const { return textHandler.getNumOfItems(); };
 	size_t getNumOfAddItems()     const { return textHandlerAdd.getNumOfItems(); };
+	size_t getNumOfActiveText()   const { return textHandler.getNumOfActiveText(); };
 
 	void increaseActiveText() { textHandler.increaseActiveText(); };
 	void reduceActiveText() { textHandler.reduceActiveText(); };

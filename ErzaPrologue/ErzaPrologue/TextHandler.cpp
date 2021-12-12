@@ -69,21 +69,21 @@ void TextHandler::setPosition(float X, float Y, float step)
 
 void TextHandler::increaseActiveText()
 {
-	++activeText;
-	if (activeText >= textList.size())
+	if (activeText <= minSizeOfText)
 	{
-		activeText = minSizeOfText;
+		activeText = textList.size() - 1;
+	}
+	else
+	{
+		--activeText;
 	}
 }
 
 void TextHandler::reduceActiveText()
 {
-	if (activeText <= minSizeOfText) 
+	++activeText;
+	if (activeText >= textList.size())
 	{
-		activeText = textList.size();
-	}
-	else
-	{
-		--activeText;
+		activeText = minSizeOfText;
 	}
 }

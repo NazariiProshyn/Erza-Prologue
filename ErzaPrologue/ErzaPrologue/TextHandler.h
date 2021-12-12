@@ -4,16 +4,18 @@ class TextHandler
 {
 public:
 	TextHandler() = default;
-	Text getText(size_t num) const { return textList[num]; };
-	size_t getNumOfItems() const { return textList.size(); }
+	Text getText(size_t num)    const { return textList[num]; };
+	size_t getNumOfItems()      const { return textList.size(); }
+	size_t getNumOfActiveText() const { return activeText; }
 
 	void setFont(const std::string& font);
-	void addTextItem(const std::string& item);
 	void setSize(unsigned int active, unsigned int simple);
 	void setColour(const sf::Color& active, const sf::Color& simple);
 	void setBorder(float active, float simple);
 	void setPosition(float X, float Y, float step);
 	
+
+	void addTextItem(const std::string& item);
 	void increaseActiveText();
 	void reduceActiveText();
 	~TextHandler() = default;

@@ -18,11 +18,13 @@ void Game::Run()
             sf::Event event;
             while (window.pollEvent(event))
             {
-                if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) 
+                if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)
+                    || (!lvlsHandler.isWindowOpen())) 
                 {
                     window.close();
                 }
-                    
+                
+                lvlsHandler.eventHandler(event);
             }
             window.clear();
 
