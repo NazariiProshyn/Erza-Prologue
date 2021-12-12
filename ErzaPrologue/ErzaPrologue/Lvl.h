@@ -6,7 +6,7 @@ class Lvl
 public:
 	Lvl()  = default;
 	~Lvl() = default;
-	const sf::Sprite& getSprite() const { return texture.getSprite(); };
+	virtual const sf::Sprite& getSprite() const = 0;
 
 	Text getText(size_t num)      const { return textHandler.getText(num); };
 	Text getAddText(size_t num)   const { return textHandlerAdd.getText(num); };
@@ -21,5 +21,9 @@ protected:
 	Textrure texture;
 	TextHandler textHandler;
 	TextHandler textHandlerAdd;
+
+	virtual void createTexture()  = 0;
+	virtual void createText()     = 0;
+	virtual void textSetingsAdd() = 0;
 };
 
