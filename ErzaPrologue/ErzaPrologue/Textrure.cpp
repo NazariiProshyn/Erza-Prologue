@@ -1,5 +1,6 @@
 #include "Textrure.h"
 
+
 void Textrure::setTexture(const std::string& pathToImage)
 {
 	image.loadFromFile(pathToImage);

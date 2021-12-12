@@ -1,11 +1,19 @@
 #include "Menu.h"
-namespace NSPaths
+namespace NSTextPaths
 {
-    const std::string backgroundPath = "src/images/side/menuBack.png";
     const std::string fontPathMain = "src/fonts/MainFont.ttf";
     const std::string fontPathAdd = "src/fonts/SecondaryFont.ttf";
-    //images/coin10.jpg
 };
+
+namespace NSTexturePaths
+{
+    const std::vector<std::string> texturePaths =
+    {
+        "src/images/side/menuBack.png"
+    };
+
+    // MENUPHOTO = 0
+}
 
 namespace NSMenuText
 {
@@ -54,6 +62,13 @@ namespace NSMenuAddText
 
 }
 
+namespace NSLvlInfo
+{
+    const size_t raws    = 1;
+    const size_t columns = 1;
+    const size_t lvl[raws][columns] = { { 0 } };
+}
+
 Menu::Menu()
 {
     createTexture();
@@ -62,7 +77,10 @@ Menu::Menu()
 
 void Menu::createTexture()
 {
-    texture.setTexture(NSPaths::backgroundPath);
+    for (size_t i = 0; i < NSTexturePaths::texturePaths.size(); ++i)
+    {
+        textureHandler.addTexture(NSTexturePaths::texturePaths[i]);
+    }
 }
 
 void Menu::createText()
@@ -83,16 +101,31 @@ void Menu::createText()
 
 void Menu::textSetings()
 {
-    textHandler.setFont(NSPaths::fontPathMain);
+    textHandler.setFont(NSTextPaths::fontPathMain);
     textHandler.setSize(NSMenuText::activeSize, NSMenuText::simpleSize);
     textHandler.setColour(NSMenuText::activeColor, NSMenuText::simpleColor);
     textHandler.setBorder(NSMenuText::activeBorder, NSMenuText::simpleBorder);
     textHandler.setPosition(NSMenuText::positionX, NSMenuText::positionY, NSMenuText::stepBetweenItems);
 }
 
+const sf::Sprite& Menu::getSprite(size_t x, size_t y)
+{
+    return textureHandler.getSprite(NSLvlInfo::lvl[x][y]);
+}
+
+const size_t Menu::getRaws() const
+{
+    return NSLvlInfo::raws;
+}
+
+const size_t Menu::getColumns() const
+{
+    return NSLvlInfo::columns;
+}
+
 void Menu::textSetingsAdd()
 {
-    textHandlerAdd.setFont(NSPaths::fontPathAdd);
+    textHandlerAdd.setFont(NSTextPaths::fontPathAdd);
     textHandlerAdd.setSize(NSMenuAddText::activeSize, NSMenuAddText::simpleSize);
     textHandlerAdd.setColour(NSMenuAddText::activeColor, NSMenuAddText::simpleColor);
     textHandlerAdd.setBorder(NSMenuAddText::activeBorder, NSMenuAddText::simpleBorder);

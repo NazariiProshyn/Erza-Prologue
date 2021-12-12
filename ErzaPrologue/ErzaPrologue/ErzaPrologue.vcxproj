@@ -159,6 +159,7 @@
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="TextHandler.cpp" />
     <ClCompile Include="Textrure.cpp" />
+    <ClCompile Include="TextureHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="Text.h" />
     <ClInclude Include="TextHandler.h" />
     <ClInclude Include="Textrure.h" />
+    <ClInclude Include="TextureHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

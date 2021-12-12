@@ -12,12 +12,12 @@ enum class EListOfAction
 	EXIT       = 3
 };
 
-const sf::Sprite& LvlsHandler::getSprite() const
+const sf::Sprite& LvlsHandler::getSprite(size_t x, size_t y) 
 {
 	switch (activeLvl)
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
-		return menu.getSprite();
+		return menu.getSprite(x,y);
 		break;
 	default:
 		break;
@@ -43,6 +43,30 @@ size_t LvlsHandler::getNumOfAddItems() const
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getNumOfAddItems();
+		break;
+	default:
+		break;
+	}
+}
+
+size_t LvlsHandler::getRaws() const
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::MENULVL):
+		return menu.getRaws();
+		break;
+	default:
+		break;
+	}
+}
+
+size_t LvlsHandler::getColumns() const
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::MENULVL):
+		return menu.getColumns();
 		break;
 	default:
 		break;

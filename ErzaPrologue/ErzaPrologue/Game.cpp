@@ -28,7 +28,14 @@ void Game::Run()
             }
             window.clear();
 
-            window.draw(lvlsHandler.getSprite());
+            for (size_t i = 0; i < lvlsHandler.getRaws(); ++i)
+            {
+                for (size_t j = 0; j < lvlsHandler.getColumns(); ++j)
+                {
+                    window.draw(lvlsHandler.getSprite(i,j));
+                }
+            }
+            
 
             for (size_t i = 0; i < lvlsHandler.getNumOfAddItems(); ++i)
             {
