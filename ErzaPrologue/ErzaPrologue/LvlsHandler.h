@@ -1,5 +1,6 @@
 #pragma once
 #include "Menu.h"
+#include "HutInTheWoods.h"
 class LvlsHandler
 {
 public:
@@ -7,6 +8,8 @@ public:
 	~LvlsHandler() = default;
 
 	bool isWindowOpen() { return openWindow; }
+	bool isrenderWindow() { return renderWindow; }
+	void endOfRendering() { renderWindow = false; };
 
 	const sf::Sprite& getSprite(size_t x, size_t y);
 
@@ -24,11 +27,12 @@ public:
 private:
 	int activeLvl = 0;
 	Menu menu;
-
+	HutInTheWoods hutInTheWoods;
 	void keyUp();
 	void keyDown();
 	void keyEnter(size_t action);
 
 	bool openWindow = true;
+	bool renderWindow = false;
 };
 

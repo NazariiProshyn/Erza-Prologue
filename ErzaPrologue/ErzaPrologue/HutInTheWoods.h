@@ -1,11 +1,11 @@
 #pragma once
 #include "Lvl.h"
-class Menu: public Lvl
+class HutInTheWoods : public Lvl
 {
 public:
-	Menu();
+	HutInTheWoods();
 	void textSetings() override;
-	const sf::Sprite&    getSprite(size_t x, size_t y)  override;
+	const sf::Sprite& getSprite(size_t x, size_t y)  override;
 	virtual const size_t getRaws()    const override;
 	virtual const size_t getColumns() const override;
 	
@@ -14,4 +14,5 @@ protected:
 	void createText()     override;
 	void textSetingsAdd() override;
 };
+
 

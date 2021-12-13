@@ -18,6 +18,7 @@ void Game::Run()
             sf::Event event;
             while (window.pollEvent(event))
             {
+                
                 if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)
                     || (!lvlsHandler.isWindowOpen())) 
                 {
@@ -26,7 +27,9 @@ void Game::Run()
                 
                 lvlsHandler.eventHandler(event);
             }
+
             window.clear();
+
 
             for (size_t i = 0; i < lvlsHandler.getRaws(); ++i)
             {

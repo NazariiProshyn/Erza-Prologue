@@ -2,7 +2,8 @@
 
 enum class EListOfLvls
 {
-    MENULVL = 0
+    MENULVL       = 0,
+	HUTINTHEWOODS = 1
 };
 enum class EListOfAction
 {
@@ -19,6 +20,9 @@ const sf::Sprite& LvlsHandler::getSprite(size_t x, size_t y)
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getSprite(x,y);
 		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getSprite(x, y);
+		break;
 	default:
 		break;
 	}
@@ -30,6 +34,9 @@ size_t LvlsHandler::getNumOfItems() const
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getNumOfItems();
+		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getNumOfItems();
 		break;
 	default:
 		break;
@@ -44,6 +51,9 @@ size_t LvlsHandler::getNumOfAddItems() const
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getNumOfAddItems();
 		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getNumOfAddItems();
+		break;
 	default:
 		break;
 	}
@@ -55,6 +65,9 @@ size_t LvlsHandler::getRaws() const
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getRaws();
+		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getRaws();
 		break;
 	default:
 		break;
@@ -68,6 +81,9 @@ size_t LvlsHandler::getColumns() const
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getColumns();
 		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getColumns();
+		break;
 	default:
 		break;
 	}
@@ -80,6 +96,9 @@ Text LvlsHandler::getText(size_t num) const
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getText(num);
 		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getText(num);
+		break;
 	default:
 		break;
 	}
@@ -91,6 +110,9 @@ Text LvlsHandler::getAddText(size_t num) const
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getAddText(num);
+		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getAddText(num);
 		break;
 	default:
 		break;
@@ -162,6 +184,11 @@ void LvlsHandler::keyEnter(size_t action)
 {
 	switch (action)
 	{
+	case static_cast<size_t>(EListOfAction::NEWGAME):
+		activeLvl = 
+			static_cast<int>(EListOfLvls::HUTINTHEWOODS);
+		renderWindow = true;
+		break;
 	case static_cast<size_t>(EListOfAction::EXIT):
 		openWindow = false;
 		break;

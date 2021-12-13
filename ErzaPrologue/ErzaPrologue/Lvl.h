@@ -24,6 +24,7 @@ protected:
 	TextHandler textHandler;
 	TextHandler textHandlerAdd;
 
+	virtual void textSetings()    = 0;
 	virtual void createTexture()  = 0;
 	virtual void createText()     = 0;
 	virtual void textSetingsAdd() = 0;
