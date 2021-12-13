@@ -6,7 +6,7 @@ class Lvl
 public:
 	Lvl()  = default;
 	~Lvl() = default;
-	virtual const sf::Sprite& getSprite(size_t x, size_t y) = 0;
+	virtual const sf::Sprite& getBackground(size_t x, size_t y) = 0;
 	virtual const size_t getRaws()        const = 0;
 	virtual const size_t getColumns()     const = 0;
 

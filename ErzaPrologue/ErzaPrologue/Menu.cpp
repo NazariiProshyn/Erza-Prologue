@@ -11,6 +11,7 @@ namespace NSTexturePaths
     {
         "src/images/side/menuBack.png"
     };
+    const size_t backTexture = 0;
 
     // MENUPHOTO = 0
 }
@@ -108,9 +109,10 @@ void Menu::textSetings()
     textHandler.setPosition(NSMenuText::positionX, NSMenuText::positionY, NSMenuText::stepBetweenItems);
 }
 
-const sf::Sprite& Menu::getSprite(size_t x, size_t y)
+const sf::Sprite& Menu::getBackground(size_t x, size_t y)
 {
-    return textureHandler.getSprite(NSLvlInfo::lvl[x][y]);
+
+    return textureHandler.getSprite(NSTexturePaths::backTexture);
 }
 
 const size_t Menu::getRaws() const

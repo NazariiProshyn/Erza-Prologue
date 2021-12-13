@@ -11,7 +11,9 @@ public:
 	bool isrenderWindow() { return renderWindow; }
 	void endOfRendering() { renderWindow = false; };
 
-	const sf::Sprite& getSprite(size_t x, size_t y);
+	const sf::Sprite& getBackground(size_t x, size_t y);
+	const sf::Sprite& getObjects(size_t x, size_t y);
+	bool checkForObjects(size_t x, size_t y);
 
 	Text getText(size_t num)    const;
 	Text getAddText(size_t num) const;

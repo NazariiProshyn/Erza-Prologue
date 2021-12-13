@@ -13,15 +13,42 @@ enum class EListOfAction
 	EXIT       = 3
 };
 
-const sf::Sprite& LvlsHandler::getSprite(size_t x, size_t y) 
+const sf::Sprite& LvlsHandler::getBackground(size_t x, size_t y)
 {
 	switch (activeLvl)
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
-		return menu.getSprite(x,y);
+		return menu.getBackground(x,y);
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
-		return hutInTheWoods.getSprite(x, y);
+		return hutInTheWoods.getBackground(x, y);
+		break;
+	default:
+		break;
+	}
+}
+
+const sf::Sprite& LvlsHandler::getObjects(size_t x, size_t y)
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getObjects(x, y);
+		break;
+	default:
+		break;
+	}
+}
+
+bool LvlsHandler::checkForObjects(size_t x, size_t y)
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::MENULVL):
+		return false;
+		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.checkForObjects(x, y);
 		break;
 	default:
 		break;

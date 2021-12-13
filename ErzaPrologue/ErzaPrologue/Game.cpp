@@ -35,7 +35,12 @@ void Game::Run()
             {
                 for (size_t j = 0; j < lvlsHandler.getColumns(); ++j)
                 {
-                    window.draw(lvlsHandler.getSprite(i,j));
+                    window.draw(lvlsHandler.getBackground(i,j));
+                    if(lvlsHandler.checkForObjects(i,j))
+                    {
+                        window.draw(lvlsHandler.getObjects(i, j));
+                    }
+                    
                 }
             }
             
