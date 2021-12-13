@@ -9,9 +9,14 @@ namespace NSTexturePaths
 {
     const std::vector<std::string> texturePaths =
     {
-        "src/images/side/grassDay.png",
-        "src/images/side/grassDay.png",
-        "src/images/side/pathStonesDay.png"
+        "src/images/side/grassNight.png",
+        "src/images/side/pathStonesDay.png",
+        "src/images/side/pathNight.png",
+        "src/images/side/pathStonesNight.png",
+        "src/images/side/coniferTreeNight.png",
+        "src/images/side/deciduousTreeNight.png",
+        "src/images/activeElements/houseNight2.png",
+        "src/images/activeElements/pointer.png"
     };
 }
 
@@ -33,9 +38,9 @@ namespace NSMenuText
     const float      activeBorder = 1.0f;
     const float      simpleBorder = 1.0f;
 
-    const float        positionX = 10.0f;
-    const float        positionY = 10.0f;
-    const float        stepBetweenItems = 20.0f;
+    const float positionX        = 50.0f;
+    const float positionY        = 50.0f;
+    const float stepBetweenItems = 20.0f;
 
 }
 
@@ -43,35 +48,63 @@ namespace NSMenuAddText
 {
     const std::vector<std::string> addText =
     {
-        "ERZA:prologue"
+        "HutInTheWoods"
     };
 
     const sf::Color   activeColor = sf::Color::Red;
     const sf::Color   simpleColor = sf::Color::Green;
 
-    const unsigned int activeSize = 100;
-    const unsigned int simpleSize = 100;
+    const unsigned int activeSize = 18;
+    const unsigned int simpleSize = 14;
 
-    const float      activeBorder = 4.0f;
-    const float      simpleBorder = 2.8f;
+    const float      activeBorder = 1.2f;
+    const float      simpleBorder = 1.2f;
 
-    const float        positionX = 700.0f;
-    const float        positionY = 250.0f;
+    const float        positionX = 1775.0f;
+    const float        positionY = 20.0f;
     const float        stepBetweenItems = 100.0f;
 
 }
 
 namespace NSLvlInfo
 {
-    const size_t raws = 3;
-    const size_t columns = 2;
+    const size_t raws = 25;
+    const size_t columns = 45;
     const size_t lvl[raws][columns] = 
-    { {0,1},
-      {2,0},
-      {2,0}
+    { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+      {1,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,1},
+      {1,0,5,0,4,0,0,0,0,0,0,0,0,0,0,0,4,0,0,4,0,0,0,4,0,0,4,0,0,5,0,0,0,0,5,0,0,5,4,0,0,4,0,0,1},
+      {1,0,0,0,0,0,4,0,0,5,0,5,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,5,0,0,0,1},
+      {1,0,0,0,4,0,0,0,0,0,5,0,4,0,5,0,0,0,0,5,4,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,5,0,0,0,0,0,4,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,7,1},
+      {1,0,0,0,5,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,4,0,0,0,0,2,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,5,5,0,4,0,5,4,0,4,0,0,0,0,0,0,0,5,0,0,0,0,0,0,2,0,4,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,4,0,0,4,0,0,0,0,0,0,0,0,1},
+      {1,2,2,2,2,2,2,2,2,0,0,4,0,0,0,0,0,0,0,0,0,0,5,0,0,2,0,0,4,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,0,0,0,0,5,0,0,0,0,0,0,0,5,0,0,0,2,0,0,0,0,0,0,0,4,0,0,0,4,0,0,0,0,0,0,1},
+      {1,0,0,4,0,0,0,0,2,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,2,0,0,4,0,5,4,0,0,5,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,4,0,4,0,2,0,0,5,0,5,0,0,3,0,0,0,0,0,5,0,0,2,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,4,0,0,0,0,0,2,0,0,0,4,0,0,0,3,0,0,4,5,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,4,0,5,0,0,5,0,0,1},
+      {1,0,0,4,0,0,5,0,2,0,0,0,0,0,0,0,3,0,0,0,0,0,0,4,0,2,0,0,4,0,4,0,0,5,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,4,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,5,0,0,0,0,0,4,0,0,0,0,0,4,0,0,1},
+      {1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,4,5,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,5,4,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,4,0,0,0,1},
+      {1,4,0,0,4,0,0,0,0,0,0,4,0,4,0,0,4,0,4,0,0,0,0,0,0,0,4,0,0,0,0,4,0,0,0,5,0,5,0,4,0,0,0,0,1},
+      {1,0,4,0,0,4,4,4,0,0,0,0,0,0,4,0,0,0,0,0,4,0,4,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,5,4,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,4,0,0,4,0,5,0,0,0,0,0,0,4,0,0,0,0,0,4,0,4,0,0,0,0,0,4,0,0,0,0,0,0,5,0,0,0,0,0,5,0,0,1},
+      {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
     // GRASSNIGHT = 0
-    //
+    // GRASSNIGHTWITHSTONE = 1
+    // NIGHTPATH   = 2
+    // NIGHTPATHV2 = 3
+    // TREE1 = 4
+    // TREE2 = 5
+    // HOUSE = 6
+    // POINTER = 7
 }
 
 namespace NSTextureConstants
