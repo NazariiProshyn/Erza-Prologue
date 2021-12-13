@@ -9,8 +9,9 @@ namespace NSTexturePaths
 {
     const std::vector<std::string> texturePaths =
     {
-        "src/images/side/menuBack.png",
-        "src/images/side/menuBack.png"
+        "src/images/side/coniferTree.png",
+        "src/images/side/grassDay.png",
+        "src/images/side/pathStonesDay.png"
     };
 }
 
@@ -63,8 +64,8 @@ namespace NSMenuAddText
 namespace NSLvlInfo
 {
     const size_t raws = 1;
-    const size_t columns = 1;
-    const size_t lvl[raws][columns] = { { 0 } };
+    const size_t columns = 2;
+    const size_t lvl[raws][columns] = { 0,1 };
     // GRASSNIGHT = 0
     //
 }

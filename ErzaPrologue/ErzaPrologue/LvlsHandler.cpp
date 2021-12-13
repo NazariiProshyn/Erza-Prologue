@@ -145,7 +145,7 @@ void LvlsHandler::eventHandler(const sf::Event& event)
 		keyEnter(menu.getNumOfActiveText());
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
-
+		activeLvl = static_cast<int>(EListOfLvls::MENULVL);
 	}
 }
 

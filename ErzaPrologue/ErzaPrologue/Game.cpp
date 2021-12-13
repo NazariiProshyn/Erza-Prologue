@@ -10,7 +10,7 @@ void Game::Run()
 {
     
         sf::RenderWindow window(sf::VideoMode(NSParametrs::windowWidth, NSParametrs::windowHeight), 
-            "Erza:prologue",sf::Style::Fullscreen);//Use Style::FullScreen
+            "Erza:prologue",sf::Style::Titlebar);//Use Style::FullScreen None
 
 
         while (window.isOpen())
