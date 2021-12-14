@@ -9,5 +9,6 @@ public:
 	void Run();
 private:
 	LvlsHandler lvlsHandler; 
+	float time = 0;
 };
 

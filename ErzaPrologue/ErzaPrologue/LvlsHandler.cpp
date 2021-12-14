@@ -40,6 +40,18 @@ const sf::Sprite& LvlsHandler::getObjects(size_t x, size_t y)
 	}
 }
 
+const sf::Sprite& LvlsHandler::getHero()
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getHeroSprite();
+		break;
+	default:
+		break;
+	}
+}
+
 bool LvlsHandler::checkForObjects(size_t x, size_t y)
 {
 	switch (activeLvl)
@@ -116,6 +128,22 @@ size_t LvlsHandler::getColumns() const
 	}
 }
 
+bool LvlsHandler::checkPosition(size_t x, size_t y)
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::MENULVL):
+		return false;
+		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.checkPosition(x,y);
+		break;
+	default:
+		break;
+	}
+}
+
+
 Text LvlsHandler::getText(size_t num) const
 {
 	switch (activeLvl)
@@ -146,23 +174,23 @@ Text LvlsHandler::getAddText(size_t num) const
 	}
 }
 
-void LvlsHandler::eventHandler(const sf::Event& event)
+void LvlsHandler::eventHandler(const sf::Event& event, float time)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || 
-		sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
 		sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-
+		keyRight(time);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || 
-		sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		keyUp();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ||
+		sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+		keyLeft(time);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ||
 		sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		keyDown();
+		keyDown(time);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ||
+		sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+		keyUp(time);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 
@@ -181,7 +209,7 @@ void LvlsHandler::activeLvlMenu()
     activeLvl = static_cast<int>(EListOfLvls::MENULVL);
 }
 
-void LvlsHandler::keyUp()
+void LvlsHandler::keyUp(float time)
 {
 	switch (activeLvl)
 	{
@@ -189,17 +217,55 @@ void LvlsHandler::keyUp()
 		menu.increaseActiveText();
 		menu.textSetings();
 		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		hutInTheWoods.setWay("UP");
+		hutInTheWoods.move(time);
+		menu.textSetings();
+		break;
 	default:
 		break;
 	}
 }
 
-void LvlsHandler::keyDown()
+void LvlsHandler::keyDown(float time)
 {
 	switch (activeLvl)
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
 		menu.reduceActiveText();
+		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		hutInTheWoods.setWay("DOWN");
+		hutInTheWoods.move(time);
+		menu.textSetings();
+		break;
+	default:
+		break;
+	}
+}
+
+void LvlsHandler::keyRight(float time)
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		hutInTheWoods.setWay("RIGHT");
+		hutInTheWoods.move(time);
+		menu.textSetings();
+		break;
+	default:
+		break;
+	}
+}
+
+void LvlsHandler::keyLeft(float time)
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		hutInTheWoods.setWay("LEFT");
+		hutInTheWoods.move(time);
 		menu.textSetings();
 		break;
 	default:

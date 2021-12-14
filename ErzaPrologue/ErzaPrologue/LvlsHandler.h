@@ -13,6 +13,7 @@ public:
 
 	const sf::Sprite& getBackground(size_t x, size_t y);
 	const sf::Sprite& getObjects(size_t x, size_t y);
+	const sf::Sprite& getHero();
 	bool checkForObjects(size_t x, size_t y);
 
 	Text getText(size_t num)    const;
@@ -23,15 +24,20 @@ public:
 
 	size_t getRaws()    const;
 	size_t getColumns() const;
+
+	bool checkPosition(size_t x, size_t y);
+
 	
-	void eventHandler(const sf::Event& event);
+	void eventHandler(const sf::Event& event,float time);
 	void activeLvlMenu();
 private:
 	int activeLvl = 0;
 	Menu menu;
 	HutInTheWoods hutInTheWoods;
-	void keyUp();
-	void keyDown();
+	void keyUp(float time);
+	void keyDown(float time);
+	void keyRight(float time);
+	void keyLeft(float time);
 	void keyEnter(size_t action);
 
 	bool openWindow = true;

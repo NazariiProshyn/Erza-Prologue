@@ -112,6 +112,8 @@ namespace NSTextureConstants
     const size_t height   = 48;
     const size_t width    = 48;
     const size_t backTexture = 0;
+    const size_t heroX = 10;
+    const size_t heroY = 1;
 
 }
 
@@ -119,6 +121,7 @@ HutInTheWoods::HutInTheWoods()
 {
     createTexture();
     createText();
+    setHeroPosition();
 }
 
 void HutInTheWoods::textSetings()
@@ -161,6 +164,18 @@ const size_t HutInTheWoods::getColumns() const
 bool HutInTheWoods::checkForObjects(size_t x, size_t y)
 {
     return NSLvlInfo::lvl[x][y];
+}
+
+void HutInTheWoods::setHeroPosition()
+{
+    hero.setPosition(NSTextureConstants::heroX * NSTextureConstants::height,
+        NSTextureConstants::heroY * NSTextureConstants::width);
+}
+
+bool HutInTheWoods::checkPosition(size_t x, size_t y)
+{
+    return (hero.getX() / NSTextureConstants::height == x) &&
+        (hero.getY() / NSTextureConstants::height == y);
 }
 
 void HutInTheWoods::createTexture()

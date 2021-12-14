@@ -151,7 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Creature.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Hero.cpp" />
     <ClCompile Include="HutInTheWoods.cpp" />
     <ClCompile Include="Lvl.cpp" />
     <ClCompile Include="LvlsHandler.cpp" />
@@ -163,7 +165,9 @@
     <ClCompile Include="TextureHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Creature.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Hero.h" />
     <ClInclude Include="HutInTheWoods.h" />
     <ClInclude Include="Lvl.h" />
     <ClInclude Include="LvlsHandler.h" />
