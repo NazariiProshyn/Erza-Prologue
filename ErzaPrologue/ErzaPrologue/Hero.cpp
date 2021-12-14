@@ -112,7 +112,7 @@ void Hero::setWay(const std::string& way)
 
 size_t Hero::getX()
 {
-    return X + NSTextureConstants::sizeX;
+    return X;
 }
 
 size_t Hero::getY()

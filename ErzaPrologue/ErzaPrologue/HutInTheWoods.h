@@ -16,7 +16,7 @@ public:
 	void move(float gameTime) { hero.move(gameTime); };
 	void setWay(const std::string& way) { hero.setWay(way); };
 
-	bool checkPosition(size_t x,size_t y);
+	bool checkPosition(size_t x);
 protected:
 	void createTexture()  override;
 	void createText()     override;

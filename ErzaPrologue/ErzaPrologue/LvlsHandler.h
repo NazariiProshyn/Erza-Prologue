@@ -25,7 +25,7 @@ public:
 	size_t getRaws()    const;
 	size_t getColumns() const;
 
-	bool checkPosition(size_t x, size_t y);
+	bool checkPosition(size_t x);
 
 	
 	void eventHandler(const sf::Event& event,float time);

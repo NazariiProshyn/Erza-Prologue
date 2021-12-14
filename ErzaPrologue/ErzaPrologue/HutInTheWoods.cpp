@@ -10,7 +10,7 @@ namespace NSTexturePaths
     const std::vector<std::string> texturePaths =
     {
         "src/images/side/grassNight.png",
-        "src/images/side/pathStonesDay.png",
+        "src/images/side/grassWithStoneNight.png",
         "src/images/side/pathNight.png",
         "src/images/side/pathStonesNight.png",
         "src/images/side/coniferTreeNight.png",
@@ -79,10 +79,10 @@ namespace NSLvlInfo
       {1,0,0,0,4,0,0,0,0,0,5,0,4,0,5,0,0,0,0,5,4,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
       {1,5,0,0,0,0,0,4,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,7,1},
       {1,0,0,0,5,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,4,0,0,0,0,2,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,5,5,0,4,0,5,4,0,4,0,0,0,0,0,0,0,5,0,0,0,0,0,0,2,0,4,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,4,0,0,4,0,0,0,0,0,0,0,0,1},
-      {1,2,2,2,2,2,2,2,2,0,0,4,0,0,0,0,0,0,0,0,0,0,5,0,0,2,0,0,4,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,2,0,0,0,0,5,0,0,0,0,0,0,0,5,0,0,0,2,0,0,0,0,0,0,0,4,0,0,0,4,0,0,0,0,0,0,1},
+      {1,0,5,5,0,4,0,5,4,0,4,0,0,0,0,6,0,0,5,0,0,0,0,0,0,2,0,4,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,4,0,0,4,0,0,0,0,0,0,0,0,1},
+      {1,2,2,2,2,2,2,2,2,0,0,4,0,0,2,2,2,0,0,0,0,0,5,0,0,2,0,0,4,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,0,0,0,0,5,2,2,2,0,0,0,0,5,0,0,0,2,0,0,0,0,0,0,0,4,0,0,0,4,0,0,0,0,0,0,1},
       {1,0,0,4,0,0,0,0,2,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,2,0,0,4,0,5,4,0,0,5,0,0,0,0,0,0,0,0,0,1},
       {1,0,0,0,4,0,4,0,2,0,0,5,0,5,0,0,3,0,0,0,0,0,5,0,0,2,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
       {1,0,4,0,0,0,0,0,2,0,0,0,4,0,0,0,3,0,0,4,5,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,4,0,5,0,0,5,0,0,1},
@@ -111,9 +111,14 @@ namespace NSTextureConstants
 {
     const size_t height   = 48;
     const size_t width    = 48;
-    const size_t backTexture = 0;
     const size_t heroX = 10;
     const size_t heroY = 1;
+
+    const size_t grass = 0;
+    const size_t stone = 1;
+    const size_t path1 = 2;
+    const size_t path2 = 3;
+
 
 }
 
@@ -135,20 +140,42 @@ void HutInTheWoods::textSetings()
 
 const sf::Sprite& HutInTheWoods::getBackground(size_t x, size_t y)
 {
-    textureHandler.setPosition(NSTextureConstants::backTexture,x * NSTextureConstants::height,
+
+    switch (NSLvlInfo::lvl[x][y])
+    {
+    case NSTextureConstants::grass:
+        textureHandler.setPosition(NSTextureConstants::grass, x * NSTextureConstants::height,
+            y * NSTextureConstants::width);
+        return textureHandler.getSprite(NSTextureConstants::grass);
+        break;
+    case NSTextureConstants::stone:
+        textureHandler.setPosition(NSTextureConstants::stone, x * NSTextureConstants::height,
+            y * NSTextureConstants::width);
+        return textureHandler.getSprite(NSTextureConstants::stone);
+        break;
+    case NSTextureConstants::path1:
+        textureHandler.setPosition(NSTextureConstants::path1, x * NSTextureConstants::height,
+            y * NSTextureConstants::width);
+        return textureHandler.getSprite(NSTextureConstants::path1);
+        break;
+    case NSTextureConstants::path2:
+        textureHandler.setPosition(NSTextureConstants::path2, x * NSTextureConstants::height,
+            y * NSTextureConstants::width);
+        return textureHandler.getSprite(NSTextureConstants::path2);
+        break;
+    default:
+        break;
+    }
+    textureHandler.setPosition(NSTextureConstants::grass,x * NSTextureConstants::height,
         y * NSTextureConstants::width);
-    return textureHandler.getSprite(NSTextureConstants::backTexture);
+    return textureHandler.getSprite(NSTextureConstants::grass);
 }
 
 const sf::Sprite& HutInTheWoods::getObjects(size_t x, size_t y)
 {
-    if (NSLvlInfo::lvl[x][y] != NSTextureConstants::backTexture)
-    {
         textureHandler.setPosition(NSLvlInfo::lvl[x][y], x * NSTextureConstants::height,
             y * NSTextureConstants::width);
         return textureHandler.getSprite(NSLvlInfo::lvl[x][y]);
-    }
-
 }
 
 const size_t HutInTheWoods::getRaws() const
@@ -163,7 +190,11 @@ const size_t HutInTheWoods::getColumns() const
 
 bool HutInTheWoods::checkForObjects(size_t x, size_t y)
 {
-    return NSLvlInfo::lvl[x][y];
+    if (NSLvlInfo::lvl[x][y] <= NSTextureConstants::path2)
+    {
+        return false;
+    }
+    return true;
 }
 
 void HutInTheWoods::setHeroPosition()
@@ -172,10 +203,9 @@ void HutInTheWoods::setHeroPosition()
         NSTextureConstants::heroY * NSTextureConstants::width);
 }
 
-bool HutInTheWoods::checkPosition(size_t x, size_t y)
+bool HutInTheWoods::checkPosition(size_t x)
 {
-    return (hero.getX() / NSTextureConstants::height == x) &&
-        (hero.getY() / NSTextureConstants::height == y);
+    return (hero.getX() / NSTextureConstants::height == x);
 }
 
 void HutInTheWoods::createTexture()

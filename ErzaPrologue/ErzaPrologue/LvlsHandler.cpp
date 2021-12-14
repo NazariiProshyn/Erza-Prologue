@@ -128,7 +128,7 @@ size_t LvlsHandler::getColumns() const
 	}
 }
 
-bool LvlsHandler::checkPosition(size_t x, size_t y)
+bool LvlsHandler::checkPosition(size_t x)
 {
 	switch (activeLvl)
 	{
@@ -136,7 +136,7 @@ bool LvlsHandler::checkPosition(size_t x, size_t y)
 		return false;
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
-		return hutInTheWoods.checkPosition(x,y);
+		return hutInTheWoods.checkPosition(x);
 		break;
 	default:
 		break;

@@ -11,7 +11,7 @@ void Game::Run()
 {
     
         sf::RenderWindow window(sf::VideoMode(NSParametrs::windowWidth, NSParametrs::windowHeight), 
-            "Erza:prologue",sf::Style::Fullscreen);
+            "Erza:prologue",sf::Style::Titlebar);
         sf::Clock clock;
         
         while (window.isOpen())
@@ -52,23 +52,13 @@ void Game::Run()
                     {
                         window.draw(lvlsHandler.getObjects(i, j));
                     }
-                    if (lvlsHandler.checkPosition(i, j))
+                    if (lvlsHandler.checkPosition(i) && (j == (lvlsHandler.getColumns() - 1)))
                     {
                         window.draw(lvlsHandler.getHero());
                     }
                 }
             }
 
-            for (size_t i = 0; i < lvlsHandler.getRaws(); ++i)
-            {
-                for (size_t j = 0; j < lvlsHandler.getColumns(); ++j)
-                {
-                    if (lvlsHandler.checkPosition(i, j))
-                    {
-                        window.draw(lvlsHandler.getHero());
-                    }
-                }
-            }
             
 
             for (size_t i = 0; i < lvlsHandler.getNumOfAddItems(); ++i)
