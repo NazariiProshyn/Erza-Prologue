@@ -12,6 +12,7 @@ void Game::Run()
     
         sf::RenderWindow window(sf::VideoMode(NSParametrs::windowWidth, NSParametrs::windowHeight), 
             "Erza:prologue",sf::Style::Titlebar);
+        view.reset(sf::FloatRect(0,0,NSParametrs::windowWidth, NSParametrs::windowHeight));
         sf::Clock clock;
         
         while (window.isOpen())
@@ -30,8 +31,9 @@ void Game::Run()
                 }
                 
                 lvlsHandler.eventHandler(event, time);
+                view.setCenter(lvlsHandler.getViewX(),lvlsHandler.getViewY());//
             }
-
+            window.setView(view);
             window.clear();
 
 

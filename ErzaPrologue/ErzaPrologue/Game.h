@@ -10,5 +10,6 @@ public:
 private:
 	LvlsHandler lvlsHandler; 
 	float time = 0;
+	sf::View view;
 };
 

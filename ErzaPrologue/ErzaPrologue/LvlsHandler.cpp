@@ -13,6 +13,13 @@ enum class EListOfAction
 	EXIT       = 3
 };
 
+namespace NSViewCoordinates
+{
+	const unsigned int windowHeight = 1080;
+	const unsigned int windowWidth = 1920;
+	const unsigned int centr = 2;
+}
+
 const sf::Sprite& LvlsHandler::getBackground(size_t x, size_t y)
 {
 	switch (activeLvl)
@@ -207,6 +214,38 @@ void LvlsHandler::eventHandler(const sf::Event& event, float time)
 void LvlsHandler::activeLvlMenu()
 {
     activeLvl = static_cast<int>(EListOfLvls::MENULVL);
+}
+
+int LvlsHandler::getViewX()
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::MENULVL):
+		return NSViewCoordinates::windowWidth
+			/ NSViewCoordinates::centr;
+		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getViewX();
+		break;
+	default:
+		break;
+	}
+}
+
+int LvlsHandler::getViewY()
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::MENULVL):
+		return NSViewCoordinates::windowHeight
+			/ NSViewCoordinates::centr;
+		break;
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getViewY();
+		break;
+	default:
+		break;
+	}
 }
 
 void LvlsHandler::keyUp(float time)

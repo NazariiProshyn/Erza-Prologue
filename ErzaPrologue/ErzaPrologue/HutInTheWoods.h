@@ -17,10 +17,14 @@ public:
 	void setWay(const std::string& way) { hero.setWay(way); };
 
 	bool checkPosition(size_t x);
+	int getViewX();
+	int getViewY();
 protected:
 	void createTexture()  override;
 	void createText()     override;
 	void textSetingsAdd() override;
+private:
+	int tempCoordinate;
 };
 
 

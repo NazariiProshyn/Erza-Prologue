@@ -30,6 +30,9 @@ public:
 	
 	void eventHandler(const sf::Event& event,float time);
 	void activeLvlMenu();
+
+	int getViewX();
+	int getViewY();
 private:
 	int activeLvl = 0;
 	Menu menu;

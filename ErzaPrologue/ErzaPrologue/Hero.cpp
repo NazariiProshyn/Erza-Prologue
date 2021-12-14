@@ -117,7 +117,7 @@ size_t Hero::getX()
 
 size_t Hero::getY()
 {
-    return Y + NSTextureConstants::sizeY;
+    return Y;
 }
 
 void Hero::createTexture()
