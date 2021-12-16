@@ -1,5 +1,5 @@
 #include "TextHandler.h"
-
+#include <iostream>
 void TextHandler::setFont(const std::string& font)
 {
 	for(size_t i = 0; i < textList.size(); ++i)
@@ -12,6 +12,7 @@ void TextHandler::addTextItem(const std::string& item)
 {
 	textList.push_back(Text());
 	textList[textList.size() - 1].setText(item);
+	std::cout << item << '\n';
 }
 
 void TextHandler::setSize(unsigned int active, unsigned int simple)

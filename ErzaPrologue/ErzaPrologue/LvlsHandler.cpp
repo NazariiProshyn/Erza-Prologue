@@ -206,8 +206,11 @@ void LvlsHandler::eventHandler(const sf::Event& event, float time)
 		activeLvl == static_cast<int>(EListOfLvls::MENULVL)) {
 		keyEnter(menu.getNumOfActiveText());
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {
 		activeLvl = static_cast<int>(EListOfLvls::MENULVL);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::T)) {
+		keyT();
 	}
 }
 
@@ -327,4 +330,29 @@ void LvlsHandler::keyEnter(size_t action)
 	default:
 		break;
 	}
+}
+
+void LvlsHandler::keyT()
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.increaseMission();
+		break;
+	default:
+		break;
+	}
+}
+
+Text LvlsHandler::keyTab()
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getMission();
+		break;
+	default:
+		break;
+	}
+	return Text();
 }

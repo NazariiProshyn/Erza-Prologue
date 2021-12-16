@@ -33,6 +33,7 @@ public:
 
 	int getViewX();
 	int getViewY();
+	Text keyTab();
 private:
 	int activeLvl = 0;
 	Menu menu;
@@ -42,6 +43,7 @@ private:
 	void keyRight(float time);
 	void keyLeft(float time);
 	void keyEnter(size_t action);
+	void keyT();
 
 	bool openWindow = true;
 	bool renderWindow = false;

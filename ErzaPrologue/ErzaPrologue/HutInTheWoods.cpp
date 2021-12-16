@@ -1,4 +1,5 @@
 #include "HutInTheWoods.h"
+#include <iostream>
 namespace NSTextPaths
 {
     const std::string fontPathMain = "src/fonts/MainFont.ttf";
@@ -18,8 +19,11 @@ namespace NSTexturePaths
         "src/images/activeElements/houseNight2.png",
         "src/images/activeElements/pointer.png",
         "src/images/side/fence.png",
-        "src/images/side/fence2.png"
+        "src/images/side/fence2.png",
+        "src/images/dialogs/dialog1.jpg"
     };
+
+
 }
 
 namespace NSMenuText
@@ -30,12 +34,17 @@ namespace NSMenuText
      //   "SHIELD:",
      //  "DAMAGE:"
     };
+    const std::vector<std::string> misisions =
+    {
+        "Find a hut in the woods",
+        "Find way to Luckgrad"
+    };
 
     const sf::Color   activeColor = sf::Color::Black;
     const sf::Color   simpleColor = sf::Color::Black;
 
-    const unsigned int activeSize = 12;
-    const unsigned int simpleSize = 12;
+    const unsigned int activeSize = 24;
+    const unsigned int simpleSize = 24;
 
     const float      activeBorder = 1.0f;
     const float      simpleBorder = 1.0f;
@@ -56,8 +65,8 @@ namespace NSMenuAddText
     const sf::Color   activeColor = sf::Color::Red;
     const sf::Color   simpleColor = sf::Color::Green;
 
-    const unsigned int activeSize = 18;
-    const unsigned int simpleSize = 14;
+    const unsigned int activeSize = 24;
+    const unsigned int simpleSize = 24;
 
     const float      activeBorder = 1.2f;
     const float      simpleBorder = 1.2f;
@@ -73,7 +82,7 @@ namespace NSLvlInfo
     const size_t raws = 27;
     const size_t columns = 45;
     const size_t lvl[raws][columns] = 
-    { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,1,1},
+    { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,1,1},
       {1,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,1,9,2,2,2,1},
       {1,0,0,0,0,0,0,4,0,0,0,0,0,1,0,0,0,0,0,0,0,4,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,9,2,3,3,1},
       {1,0,5,1,4,0,0,0,0,0,0,0,0,0,0,0,4,0,0,4,0,0,1,4,0,0,4,0,0,5,1,0,0,0,5,0,0,5,4,0,9,2,3,3,1},
@@ -84,7 +93,7 @@ namespace NSLvlInfo
       {1,0,5,5,1,4,0,5,4,0,4,0,0,0,0,5,0,0,5,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,4,0,0,0,0,2,0,0,1},
       {1,0,0,0,0,1,0,0,0,0,0,0,0,0,4,1,1,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,7,1},
       {1,2,2,2,2,2,2,2,2,0,0,4,0,0,0,0,0,0,0,0,0,0,5,0,0,2,0,0,4,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,2,0,0,0,0,5,0,0,0,0,0,0,0,5,0,0,0,2,0,0,0,0,0,0,0,4,0,0,0,4,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,0,0,0,0,5,0,0,1,0,0,0,0,5,0,0,0,2,0,0,0,0,0,0,0,4,0,0,0,4,0,0,0,0,0,0,1},
       {1,0,0,4,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,4,0,5,4,0,0,5,0,0,0,0,0,0,0,0,0,1},
       {1,0,0,0,4,0,4,0,2,0,0,5,0,5,0,0,0,0,0,0,0,0,5,0,0,2,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
       {1,0,4,0,0,0,0,0,2,0,0,0,4,0,0,0,0,0,0,4,5,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,4,0,5,0,0,5,0,0,1},
@@ -292,10 +301,25 @@ void HutInTheWoods::createText()
     {
         textHandlerAdd.addTextItem(NSMenuAddText::addText[i]);
     }
-
+    for (size_t i = 0; i < NSMenuText::misisions.size(); ++i)
+    {
+        mission.addTextItem(NSMenuText::misisions[i]);
+    }
+    
     textSetingsAdd();
     textSetings();
+    misiisonSettings();
 }
+
+void HutInTheWoods::misiisonSettings()
+{
+    mission.setFont(NSTextPaths::fontPathAdd);
+    mission.setSize(NSMenuAddText::activeSize, NSMenuAddText::simpleSize);
+    mission.setColour(NSMenuAddText::activeColor, NSMenuAddText::simpleColor);
+    mission.setBorder(NSMenuAddText::activeBorder, NSMenuAddText::simpleBorder);
+}
+
+
 
 void HutInTheWoods::textSetingsAdd()
 {
@@ -304,4 +328,18 @@ void HutInTheWoods::textSetingsAdd()
     textHandlerAdd.setColour(NSMenuAddText::activeColor, NSMenuAddText::simpleColor);
     textHandlerAdd.setBorder(NSMenuAddText::activeBorder, NSMenuAddText::simpleBorder);
     textHandlerAdd.setPosition(NSMenuAddText::positionX, NSMenuAddText::positionY, NSMenuAddText::stepBetweenItems);
+}
+
+void HutInTheWoods::increaseMission()
+{
+    if (currentMission == 0)
+    {
+        currentMission = 1;
+    }
+}
+
+Text HutInTheWoods::getMission()
+{
+    mission.setPosition(getViewX(), getViewY(), NSMenuAddText::stepBetweenItems);
+    return mission.getText(currentMission);
 }
