@@ -3,6 +3,7 @@
 class Text
 {
 public:
+	// message to check access by vhrytsiuk
 	Text()  = default;
 	~Text() = default;
 	void setSize(int size) { text.setCharacterSize(size); }
