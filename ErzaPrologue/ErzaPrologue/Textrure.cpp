@@ -1,6 +1,11 @@
 #include "Textrure.h"
-#include <iostream>
-#include <ctime>
+
+namespace
+{
+	std::string kFilePath = "log/textureLog.txt";
+}
+
+Textrure::Textrure() :mLogger(kFilePath) {};
 
 void Textrure::setTexture(const std::string& pathToImage)
 {

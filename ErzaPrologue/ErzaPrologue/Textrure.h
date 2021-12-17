@@ -2,15 +2,11 @@
 #include <SFML/Graphics.hpp>
 #include "Logger.h"
 
-namespace 
-{
-	std::string kFilePath = "log/textureLog.txt";
-}
 
 class Textrure
 {
 public:
-	Textrure() :mLogger(kFilePath) {};
+	Textrure();
 	~Textrure() = default;
 	
 	void setTexture(const std::string& pathToImage);
