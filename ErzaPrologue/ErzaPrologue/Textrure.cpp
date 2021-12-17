@@ -19,6 +19,5 @@ void Textrure::setTexture(const std::string& pathToImage)
 	catch (...)
 	{
 		mLogger.logMessage("Exception catched during loading image form file " + pathToImage);
-		// throw our exception
 	}
 }
