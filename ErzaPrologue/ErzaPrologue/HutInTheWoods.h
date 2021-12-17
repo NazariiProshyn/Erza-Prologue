@@ -1,5 +1,6 @@
 #pragma once
 #include "Lvl.h"
+#include "Logger.h"
 class HutInTheWoods : public Lvl
 {
 public:
@@ -33,6 +34,7 @@ private:
 	int tempCoordinate;
 	size_t currentMission = 0;
 	TextHandler mission;
+	Logger mLogger;
 };
 
 

@@ -144,7 +144,12 @@ namespace NSViewCoordinates
     const unsigned int coef  = 3;
 }
 
-HutInTheWoods::HutInTheWoods()
+namespace
+{
+    std::string kLogFilePath = "log/hutInTheWoodLog.txt";
+}
+
+HutInTheWoods::HutInTheWoods(): mLogger(kLogFilePath)
 {
     createTexture();
     createText();
@@ -232,6 +237,7 @@ void HutInTheWoods::setHeroPosition()
 {
     hero.setPosition(NSTextureConstants::heroX * NSTextureConstants::height,
         NSTextureConstants::heroY * NSTextureConstants::width);
+    mLogger.logMessage("Hero spawned on position: x = " + std::to_string(hero.getY()) + " y = " + std::to_string(hero.getX()));
 }
 
 bool HutInTheWoods::checkPosition(size_t x)
@@ -288,6 +294,7 @@ void HutInTheWoods::createTexture()
     {
         textureHandler.addTexture(NSTexturePaths::texturePaths[i]);
     }
+    mLogger.logMessage("Texture loaded for level Hut In The Wood");
 }
 
 void HutInTheWoods::createText()
@@ -309,6 +316,8 @@ void HutInTheWoods::createText()
     textSetingsAdd();
     textSetings();
     misiisonSettings();
+
+    mLogger.logMessage("Text initialized for level Hut In The Wood");
 }
 
 void HutInTheWoods::misiisonSettings()
