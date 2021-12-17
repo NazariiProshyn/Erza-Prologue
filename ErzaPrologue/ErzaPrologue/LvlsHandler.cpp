@@ -219,6 +219,18 @@ void LvlsHandler::activeLvlMenu()
     activeLvl = static_cast<int>(EListOfLvls::MENULVL);
 }
 
+const sf::Sprite& LvlsHandler::getDialog()
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		return hutInTheWoods.getDialog();
+		break;
+	default:
+		break;
+	}
+}
+
 int LvlsHandler::getViewX()
 {
 	switch (activeLvl)

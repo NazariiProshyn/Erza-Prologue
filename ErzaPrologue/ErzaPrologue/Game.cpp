@@ -76,6 +76,10 @@ void Game::Run()
             {
                window.draw(lvlsHandler.keyTab().getString());
             }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+            {
+                window.draw(lvlsHandler.getDialog());
+            }
 
             window.display();
         }

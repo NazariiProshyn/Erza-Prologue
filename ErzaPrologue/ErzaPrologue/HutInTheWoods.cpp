@@ -20,7 +20,7 @@ namespace NSTexturePaths
         "src/images/activeElements/pointer.png",
         "src/images/side/fence.png",
         "src/images/side/fence2.png",
-        "src/images/dialogs/dialog1.jpg"
+        "src/images/dialogs/dialog1.png"
     };
 
 
@@ -82,7 +82,7 @@ namespace NSLvlInfo
     const size_t raws = 27;
     const size_t columns = 45;
     const size_t lvl[raws][columns] = 
-    { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,1,1},
+    { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,1,1},
       {1,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,1,9,2,2,2,1},
       {1,0,0,0,0,0,0,4,0,0,0,0,0,1,0,0,0,0,0,0,0,4,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,9,2,3,3,1},
       {1,0,5,1,4,0,0,0,0,0,0,0,0,0,0,0,4,0,0,4,0,0,1,4,0,0,4,0,0,5,1,0,0,0,5,0,0,5,4,0,9,2,3,3,1},
@@ -132,6 +132,7 @@ namespace NSTextureConstants
     const size_t path2 = 3;
     const size_t fence = 8;
     const size_t fenc2 = 9;
+    const size_t dialog = 10;
 
 
 }
@@ -336,6 +337,13 @@ void HutInTheWoods::increaseMission()
     {
         currentMission = 1;
     }
+}
+
+const sf::Sprite& HutInTheWoods::getDialog()
+{
+    textureHandler.setPosition(NSTextureConstants::dialog, 
+        0, getViewX());
+    return textureHandler.getSprite(NSTextureConstants::dialog);
 }
 
 Text HutInTheWoods::getMission()

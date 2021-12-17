@@ -30,7 +30,7 @@ public:
 	
 	void eventHandler(const sf::Event& event,float time);
 	void activeLvlMenu();
-
+	const sf::Sprite& getDialog();
 	int getViewX();
 	int getViewY();
 	Text keyTab();

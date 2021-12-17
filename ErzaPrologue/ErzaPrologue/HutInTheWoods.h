@@ -21,6 +21,7 @@ public:
 	int getViewY();
 	Text getMission();
 	void increaseMission();
+	const sf::Sprite& getDialog();
 protected:
 	void textSetings() override;
 	void createTexture()  override;
