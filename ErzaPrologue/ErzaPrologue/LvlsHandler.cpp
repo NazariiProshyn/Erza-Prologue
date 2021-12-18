@@ -234,6 +234,10 @@ void LvlsHandler::eventHandler(const sf::Event& event, float time)
 		activeLvl == static_cast<int>(EListOfLvls::MENULVL)) {
 		keyEnter(menu.getNumOfActiveText());
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::RShift) &&
+		activeLvl == static_cast<int>(EListOfLvls::SAVES)) {
+		loadgame();
+	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {
 		activeLvlMenu();
 	}
@@ -258,6 +262,22 @@ void LvlsHandler::activeHut()
 void LvlsHandler::activeSaves()
 {
 	activeLvl = static_cast<int>(EListOfLvls::SAVES);
+}
+
+void LvlsHandler::loadgame()
+{
+	save.load(savedGames.getSave());
+	activeLvl = save.getLvl();
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		hutInTheWoods.setHeroPosition(save.getX(),
+			save.getY());
+		hutInTheWoods.setMisiom(save.getTask());
+		break;
+	default:
+		break;
+	}
 }
 
 const sf::Sprite& LvlsHandler::getDialog()

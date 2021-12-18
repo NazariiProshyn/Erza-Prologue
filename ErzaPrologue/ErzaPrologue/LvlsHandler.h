@@ -54,5 +54,6 @@ private:
 	void activeSaves();
 	bool openWindow = true;
 	bool renderWindow = false;
+	void loadgame();
 };
 

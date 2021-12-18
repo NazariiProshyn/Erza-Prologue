@@ -12,6 +12,8 @@ public:
 	virtual const size_t getColumns() const override;
 	bool checkForObjects(size_t x, size_t y);
 	void setHeroPosition();
+	void setHeroPosition(size_t x, size_t y);
+	void setMisiom(size_t mision);
 
 	void move(float gameTime) { hero.move(gameTime); };
 	void setWay(const std::string& way) { hero.setWay(way); };

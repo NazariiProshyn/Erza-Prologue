@@ -11,7 +11,10 @@ public:
 	virtual const size_t getRaws()        const = 0;
 	virtual const size_t getColumns()     const = 0;
 
+	size_t getSave() const { return textHandler.getNumOfActiveText(); }
+
 	void setHeroPosition() {};
+	void setHeroPosition(size_t x, size_t y) {};
 
 	Text getText(size_t num)      const { return textHandler.getText(num); };
 	Text getAddText(size_t num)   const { return textHandlerAdd.getText(num); };

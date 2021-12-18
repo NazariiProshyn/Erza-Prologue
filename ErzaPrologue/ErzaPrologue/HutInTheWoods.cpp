@@ -235,6 +235,16 @@ void HutInTheWoods::setHeroPosition()
         NSTextureConstants::heroY * NSTextureConstants::width);
 }
 
+void HutInTheWoods::setHeroPosition(size_t x, size_t y)
+{
+    hero.setPosition(x,y);
+}
+
+void HutInTheWoods::setMisiom(size_t mision)
+{
+    currentMission = mision;
+}
+
 bool HutInTheWoods::checkPosition(size_t x)
 {
     return (hero.getX() / NSTextureConstants::height == x);

@@ -25,3 +25,31 @@ void Save::save(size_t lvl, size_t num,size_t x , size_t y, size_t task)
 	fin << lvl << "\n" << x << " " << y << "\n" << task;
 	fin.close();
 }
+
+void Save::load(size_t num)
+{
+	std::cout << num;
+	tempString = NSTextPaths::path;
+	tempString += std::to_string(num);
+	tempString += ".txt";
+	fout.open(tempString);
+
+	tempString.clear();
+	fout >> tempString;
+	lvl = std::stoi(tempString);
+
+	tempString.clear();
+	fout >> tempString;
+	x = std::stoi(tempString);
+
+	tempString.clear();
+	fout >> tempString;
+	y = std::stoi(tempString);
+
+	tempString.clear();
+	fout >> tempString;
+	task = std::stoi(tempString);
+
+	fout.close();
+
+}
