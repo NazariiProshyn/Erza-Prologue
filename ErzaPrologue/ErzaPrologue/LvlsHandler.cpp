@@ -3,7 +3,8 @@
 enum class EListOfLvls
 {
     MENULVL       = 0,
-	HUTINTHEWOODS = 1
+	SAVES         = 1,
+	HUTINTHEWOODS = 2
 };
 enum class EListOfAction
 {
@@ -29,6 +30,9 @@ const sf::Sprite& LvlsHandler::getBackground(size_t x, size_t y)
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getBackground(x, y);
+		break;
+	case static_cast<int>(EListOfLvls::SAVES):
+		return savedGames.getBackground(x, y);
 		break;
 	default:
 		break;
@@ -66,6 +70,9 @@ bool LvlsHandler::checkForObjects(size_t x, size_t y)
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return false;
 		break;
+	case static_cast<int>(EListOfLvls::SAVES):
+		return false;
+		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.checkForObjects(x, y);
 		break;
@@ -80,6 +87,9 @@ size_t LvlsHandler::getNumOfItems() const
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getNumOfItems();
+		break;
+	case static_cast<int>(EListOfLvls::SAVES):
+		return savedGames.getNumOfItems();
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getNumOfItems();
@@ -97,6 +107,9 @@ size_t LvlsHandler::getNumOfAddItems() const
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getNumOfAddItems();
 		break;
+	case static_cast<int>(EListOfLvls::SAVES):
+		return savedGames.getNumOfAddItems();
+		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getNumOfAddItems();
 		break;
@@ -111,6 +124,9 @@ size_t LvlsHandler::getRaws() const
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getRaws();
+		break;
+	case static_cast<int>(EListOfLvls::SAVES):
+		return savedGames.getRaws();
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getRaws();
@@ -127,6 +143,9 @@ size_t LvlsHandler::getColumns() const
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getColumns();
 		break;
+	case static_cast<int>(EListOfLvls::SAVES):
+		return savedGames.getColumns();
+		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getColumns();
 		break;
@@ -140,6 +159,9 @@ bool LvlsHandler::checkPosition(size_t x)
 	switch (activeLvl)
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
+		return false;
+		break;
+	case static_cast<int>(EListOfLvls::SAVES):
 		return false;
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
@@ -158,6 +180,9 @@ Text LvlsHandler::getText(size_t num) const
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getText(num);
 		break;
+	case static_cast<int>(EListOfLvls::SAVES):
+		return savedGames.getText(num);
+		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getText(num);
 		break;
@@ -172,6 +197,9 @@ Text LvlsHandler::getAddText(size_t num) const
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
 		return menu.getAddText(num);
+		break;
+	case static_cast<int>(EListOfLvls::SAVES):
+		return savedGames.getAddText(num);
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getAddText(num);
@@ -207,7 +235,7 @@ void LvlsHandler::eventHandler(const sf::Event& event, float time)
 		keyEnter(menu.getNumOfActiveText());
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {
-		activeLvl = static_cast<int>(EListOfLvls::MENULVL);
+		activeLvlMenu();
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::T)) {
 		keyT();
@@ -217,6 +245,16 @@ void LvlsHandler::eventHandler(const sf::Event& event, float time)
 void LvlsHandler::activeLvlMenu()
 {
     activeLvl = static_cast<int>(EListOfLvls::MENULVL);
+}
+
+void LvlsHandler::activeHut()
+{
+	activeLvl = static_cast<int>(EListOfLvls::HUTINTHEWOODS);
+}
+
+void LvlsHandler::activeSaves()
+{
+	activeLvl = static_cast<int>(EListOfLvls::SAVES);
 }
 
 const sf::Sprite& LvlsHandler::getDialog()
@@ -239,6 +277,10 @@ int LvlsHandler::getViewX()
 		return NSViewCoordinates::windowWidth
 			/ NSViewCoordinates::centr;
 		break;
+	case static_cast<int>(EListOfLvls::SAVES):
+		return NSViewCoordinates::windowWidth
+			/ NSViewCoordinates::centr;
+		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getViewX();
 		break;
@@ -252,6 +294,10 @@ int LvlsHandler::getViewY()
 	switch (activeLvl)
 	{
 	case static_cast<int>(EListOfLvls::MENULVL):
+		return NSViewCoordinates::windowHeight
+			/ NSViewCoordinates::centr;
+		break;
+	case static_cast<int>(EListOfLvls::SAVES):
 		return NSViewCoordinates::windowHeight
 			/ NSViewCoordinates::centr;
 		break;
@@ -271,6 +317,10 @@ void LvlsHandler::keyUp(float time)
 		menu.increaseActiveText();
 		menu.textSetings();
 		break;
+	case static_cast<int>(EListOfLvls::SAVES):
+		savedGames.increaseActiveText();
+		savedGames.textSetings();
+		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		hutInTheWoods.setWay("UP");
 		hutInTheWoods.move(time);
@@ -288,6 +338,10 @@ void LvlsHandler::keyDown(float time)
 	case static_cast<int>(EListOfLvls::MENULVL):
 		menu.reduceActiveText();
 		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::SAVES):
+		savedGames.reduceActiveText();
+		savedGames.textSetings();
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		hutInTheWoods.setWay("DOWN");
@@ -332,9 +386,11 @@ void LvlsHandler::keyEnter(size_t action)
 	switch (action)
 	{
 	case static_cast<size_t>(EListOfAction::NEWGAME):
-		activeLvl = 
-			static_cast<int>(EListOfLvls::HUTINTHEWOODS);
+		activeHut();
 		renderWindow = true;
+		break;
+	case static_cast<size_t>(EListOfAction::SAVEDGAMES):
+		activeSaves();
 		break;
 	case static_cast<size_t>(EListOfAction::EXIT):
 		openWindow = false;

@@ -1,6 +1,7 @@
 #pragma once
 #include "Menu.h"
 #include "HutInTheWoods.h"
+#include "SavedGames.h"
 class LvlsHandler
 {
 public:
@@ -29,7 +30,7 @@ public:
 
 	
 	void eventHandler(const sf::Event& event,float time);
-	void activeLvlMenu();
+	
 	const sf::Sprite& getDialog();
 	int getViewX();
 	int getViewY();
@@ -38,13 +39,16 @@ private:
 	int activeLvl = 0;
 	Menu menu;
 	HutInTheWoods hutInTheWoods;
+	SavedGames savedGames;
 	void keyUp(float time);
 	void keyDown(float time);
 	void keyRight(float time);
 	void keyLeft(float time);
 	void keyEnter(size_t action);
 	void keyT();
-
+	void activeLvlMenu();
+	void activeHut();
+	void activeSaves();
 	bool openWindow = true;
 	bool renderWindow = false;
 };
