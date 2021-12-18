@@ -10,6 +10,7 @@ public:
 	virtual const size_t getRaws()    const override;
 	virtual const size_t getColumns() const override;
 	void loadInfo();
+	size_t getSave() { return textHandler.getSize(); };
 
 protected:
 	void createTexture()  override;

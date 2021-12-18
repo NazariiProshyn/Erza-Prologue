@@ -20,6 +20,7 @@ public:
 	void reduceActiveText();
 	void clear() { textList.clear(); }
 	~TextHandler() = default;
+	size_t getSize() { return textList.size(); }
 private:
 	size_t activeText = 0;
 	const size_t minSizeOfText = 0;

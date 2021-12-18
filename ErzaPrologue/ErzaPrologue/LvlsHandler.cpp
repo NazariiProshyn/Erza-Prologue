@@ -240,6 +240,9 @@ void LvlsHandler::eventHandler(const sf::Event& event, float time)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::T)) {
 		keyT();
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F5)) {
+		keyF5();
+	}
 }
 
 void LvlsHandler::activeLvlMenu()
@@ -425,4 +428,16 @@ Text LvlsHandler::keyTab()
 		break;
 	}
 	return Text();
+}
+
+void LvlsHandler::keyF5()
+{
+	switch (activeLvl)
+	{
+	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+		 save.save(static_cast<size_t>(EListOfLvls::HUTINTHEWOODS),savedGames.getSave());
+		break;
+	default:
+		break;
+	}
 }

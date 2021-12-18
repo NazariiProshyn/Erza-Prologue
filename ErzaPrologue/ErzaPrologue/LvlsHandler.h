@@ -2,6 +2,7 @@
 #include "Menu.h"
 #include "HutInTheWoods.h"
 #include "SavedGames.h"
+#include "Save.h"
 class LvlsHandler
 {
 public:
@@ -35,11 +36,13 @@ public:
 	int getViewX();
 	int getViewY();
 	Text keyTab();
+	void keyF5();
 private:
 	int activeLvl = 0;
 	Menu menu;
 	HutInTheWoods hutInTheWoods;
 	SavedGames savedGames;
+	Save save;
 	void keyUp(float time);
 	void keyDown(float time);
 	void keyRight(float time);
