@@ -1,5 +1,6 @@
 #pragma once
 #include "Lvl.h"
+#include <fstream>
 class SavedGames: public Lvl
 {
 public:
@@ -8,10 +9,13 @@ public:
 	const sf::Sprite& getBackground(size_t x, size_t y)  override;
 	virtual const size_t getRaws()    const override;
 	virtual const size_t getColumns() const override;
+	void loadInfo();
 
 protected:
 	void createTexture()  override;
 	void createText()     override;
 	void textSetingsAdd() override;
+	void loadSaves();
+	std::ifstream fin;
 };
 

@@ -2,7 +2,8 @@
 namespace NSTextPaths
 {
     const std::string fontPathMain = "src/fonts/MainFont.ttf";
-    const std::string fontPathAdd = "src/fonts/SecondaryFont.ttf";
+    const std::string fontPathAdd  = "src/fonts/SecondaryFont.ttf";
+    const std::string savesPath = "src/saves/listOfSaves.txt";
 };
 
 namespace NSTexturePaths
@@ -48,7 +49,7 @@ namespace NSMenuAddText
     };
 
     const sf::Color   activeColor = sf::Color::Red;
-    const sf::Color   simpleColor = sf::Color::Green;
+    const sf::Color   simpleColor = sf::Color::Red;
 
     const unsigned int activeSize = 100;
     const unsigned int simpleSize = 100;
@@ -58,7 +59,7 @@ namespace NSMenuAddText
 
     const float        positionX = 700.0f;
     const float        positionY = 250.0f;
-    const float        stepBetweenItems = 100.0f;
+    const float        stepBetweenItems = 0;
 
 }
 
@@ -72,7 +73,6 @@ namespace NSLvlInfo
 SavedGames::SavedGames()
 {
     createTexture();
-    createText();
 }
 
 void SavedGames::createTexture()
@@ -85,11 +85,6 @@ void SavedGames::createTexture()
 
 void SavedGames::createText()
 {
-    for (size_t i = 0; i < NSMenuText::menuItems.size(); ++i)
-    {
-        textHandler.addTextItem(NSMenuText::menuItems[i]);
-    }
-
     for (size_t i = 0; i < NSMenuAddText::addText.size(); ++i)
     {
         textHandlerAdd.addTextItem(NSMenuAddText::addText[i]);
@@ -124,6 +119,13 @@ const size_t SavedGames::getColumns() const
     return NSLvlInfo::columns;
 }
 
+void SavedGames::loadInfo()
+{
+    textHandler.clear();
+    loadSaves();
+    createText();
+}
+
 void SavedGames::textSetingsAdd()
 {
     textHandlerAdd.setFont(NSTextPaths::fontPathAdd);
@@ -131,4 +133,21 @@ void SavedGames::textSetingsAdd()
     textHandlerAdd.setColour(NSMenuAddText::activeColor, NSMenuAddText::simpleColor);
     textHandlerAdd.setBorder(NSMenuAddText::activeBorder, NSMenuAddText::simpleBorder);
     textHandlerAdd.setPosition(NSMenuAddText::positionX, NSMenuAddText::positionY, NSMenuAddText::stepBetweenItems);
+}
+
+void SavedGames::loadSaves()
+{
+    fin.open(NSTextPaths::savesPath, std::ios_base::app);
+    std::string tempString;
+    while (!fin.eof())
+    {
+        tempString.clear();
+        fin >> tempString;
+        if (tempString != "")
+        {
+            textHandler.addTextItem(tempString);
+        }
+        
+    }
+    fin.close();
 }

@@ -18,6 +18,7 @@ public:
 	void addTextItem(const std::string& item);
 	void increaseActiveText();
 	void reduceActiveText();
+	void clear() { textList.clear(); }
 	~TextHandler() = default;
 private:
 	size_t activeText = 0;

@@ -387,10 +387,12 @@ void LvlsHandler::keyEnter(size_t action)
 	{
 	case static_cast<size_t>(EListOfAction::NEWGAME):
 		activeHut();
+		hutInTheWoods.setHeroPosition();
 		renderWindow = true;
 		break;
 	case static_cast<size_t>(EListOfAction::SAVEDGAMES):
 		activeSaves();
+		savedGames.loadInfo();
 		break;
 	case static_cast<size_t>(EListOfAction::EXIT):
 		openWindow = false;
