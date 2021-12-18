@@ -19,6 +19,9 @@ public:
 	bool checkPosition(size_t x);
 	int getViewX();
 	int getViewY();
+	size_t getX() { return hero.getY(); }
+	size_t getY() { return hero.getX(); }
+	size_t getTask() { return currentMission; }
 	Text getMission();
 	void increaseMission();
 	const sf::Sprite& getDialog();

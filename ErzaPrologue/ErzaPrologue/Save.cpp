@@ -7,7 +7,7 @@ namespace NSTextPaths
 	const std::string path = "src/saves/";
 };
 
-void Save::save(size_t lvl, size_t num)
+void Save::save(size_t lvl, size_t num,size_t x , size_t y, size_t task)
 {
 	std::cout << "save";
 	tempString = defaultString;
@@ -21,6 +21,7 @@ void Save::save(size_t lvl, size_t num)
 	tempString = NSTextPaths::path;
 	tempString += std::to_string(num);
 	tempString += ".txt";
-	fout.open(tempString, std::ios_base::app);
-	fout.close();
+	fin.open(tempString, std::ios_base::app);
+	fin << lvl << "\n" << x << " " << y << "\n" << task;
+	fin.close();
 }

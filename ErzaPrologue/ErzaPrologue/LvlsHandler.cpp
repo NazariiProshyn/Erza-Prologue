@@ -435,7 +435,9 @@ void LvlsHandler::keyF5()
 	switch (activeLvl)
 	{
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
-		 save.save(static_cast<size_t>(EListOfLvls::HUTINTHEWOODS),savedGames.getSave());
+		 save.save(static_cast<size_t>(EListOfLvls::HUTINTHEWOODS),savedGames.getSave(),
+			 hutInTheWoods.getX(), hutInTheWoods.getY(), hutInTheWoods.getTask());
+		 savedGames.loadInfo();
 		break;
 	default:
 		break;
