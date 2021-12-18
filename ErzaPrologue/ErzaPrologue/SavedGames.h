@@ -11,6 +11,7 @@ public:
 	virtual const size_t getColumns() const override;
 	void loadInfo();
 	size_t getSave() { return textHandler.getNumOfActiveText(); };
+	size_t getNumOfSaves() { return textHandler.getSize(); };
 
 protected:
 	void createTexture()  override;
