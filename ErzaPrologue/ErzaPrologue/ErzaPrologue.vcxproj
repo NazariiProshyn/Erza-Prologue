@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CComporator.cpp" />
     <ClCompile Include="Creature.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hero.cpp" />
@@ -166,6 +167,7 @@
     <ClCompile Include="TextureHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CComporator.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Hero.h" />
