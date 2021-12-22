@@ -25,6 +25,15 @@ namespace NSViewCoordinates
 	const unsigned int centr = 2;
 }
 
+bool LvlsHandler::checkForEn()
+{
+	if (activeLvl == static_cast<int>(EListOfLvls::ERFIELD))
+	{
+		return true;
+	}
+	return false;
+}
+
 const sf::Sprite& LvlsHandler::getBackground(size_t x, size_t y)
 {
 	switch (activeLvl)

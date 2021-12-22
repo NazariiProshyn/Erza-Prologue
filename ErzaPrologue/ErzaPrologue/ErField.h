@@ -1,5 +1,6 @@
 #pragma once
 #include "Lvl.h"
+#include "Enemy.h"
 class ErField : public Lvl
 {
 public:
@@ -17,6 +18,7 @@ public:
 
 	void move(float gameTime) { hero.move(gameTime); };
 	void setWay(const std::string& way) { hero.setWay(way); };
+	void moveEn(float gameTime);
 
 	bool checkPosition(size_t x);
 	int getViewX();
@@ -27,6 +29,7 @@ public:
 	Text getMission();
 	void increaseMission();
 	const sf::Sprite& getDialog();
+	std::vector<Enemy> enemies;
 protected:
 	void textSetings() override;
 	void createTexture()  override;
@@ -34,10 +37,11 @@ protected:
 	void misiisonSettings();
 	void textSetingsAdd() override;
 
-
+	
 private:
 	int tempCoordinate;
 	size_t currentMission = 0;
 	TextHandler mission;
+	bool atc = false;
 };
 

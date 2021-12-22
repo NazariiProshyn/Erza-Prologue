@@ -15,6 +15,7 @@ public:
 	bool isWindowOpen() { return openWindow; }
 	bool isrenderWindow() { return renderWindow; }
 	void endOfRendering() { renderWindow = false; };
+	bool checkForEn();
 
 	const sf::Sprite& getBackground(size_t x, size_t y);
 	const sf::Sprite& getObjects(size_t x, size_t y);
@@ -40,13 +41,14 @@ public:
 	int getViewY();
 	Text keyTab();
 	void keyF5();
+	ErField       erField;
 private:
 	int activeLvl = 0;
 	Menu menu;
 	HutInTheWoods hutInTheWoods;
 	LuckGrad      luckgrad;
 	SavedGames    savedGames;
-	ErField       erField;
+	
 	Humans        humans;
 	Save save;
 	void keyUp(float time);

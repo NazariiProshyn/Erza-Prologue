@@ -62,8 +62,15 @@ void Game::Run()
                 }
             }
 
-            
-
+            if (lvlsHandler.checkForEn())
+            {
+                for (size_t i = 0; i < lvlsHandler.erField.enemies.size(); ++i)
+                {
+                    window.draw(lvlsHandler.erField.enemies[i].getSprite());
+                }
+                lvlsHandler.erField.moveEn(time);
+            }
+           
             for (size_t i = 0; i < lvlsHandler.getNumOfAddItems(); ++i)
             {
                 window.draw(lvlsHandler.getAddText(i).getString());

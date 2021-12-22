@@ -10,7 +10,7 @@ namespace NSTexturePaths
 {
     const std::vector<std::string> texturePaths =
     {
-        "src/images/side/pathNight.png",
+        "src/images/side/grassNight.png",
         "src/images/side/grassWithStoneNight.png",
         "src/images/side/pathNight.png",
         "src/images/side/pathStonesNight.png",
@@ -36,8 +36,7 @@ namespace NSMenuText
     };
     const std::vector<std::string> misisions =
     {
-        "Find a hut in the woods",
-        "Find way to Luckgrad"
+        " Do not cast ghosts,\n do not enter their territory\n and flee from the forest!",
     };
 
     const sf::Color   activeColor = sf::Color::Black;
@@ -83,40 +82,40 @@ namespace NSLvlInfo
     const size_t columns = 45;
     const size_t lvl[raws][columns] =
     { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-      {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,2,2,1,2,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,1},
+      {1,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,1,2,2,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,2,2,1,2,2,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,1,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,1},
+      {1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,2,2,1,2,2,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,2,2,1,2,2,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,1,2,2,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,1,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,2,2,1,2,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,1,2,2,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,1},
+      {1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
       {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
-/*        "src/images/side/pathNight.png",
-        "src/images/side/grassWithStoneNight.png",
-        "src/images/side/pathNight.png",
-        "src/images/side/pathStonesNight.png",
-        "src/images/side/coniferTreeNight.png",
-        "src/images/side/deciduousTreeNight.png",
-        "src/images/activeElements/houseNight2.png",
-        "src/images/activeElements/pointer.png",
+/*        "src/images/side/pathNight.png",0
+        "src/images/side/grassWithStoneNight.png",1
+        "src/images/side/pathNight.png",2
+        "src/images/side/pathStonesNight.png",3
+        "src/images/side/coniferTreeNight.png",4
+        "src/images/side/deciduousTreeNight.png",5
+        "src/images/activeElements/houseNight2.png"6
+        "src/images/activeElements/pointer.png",7
         "src/images/side/fence.png",
         "src/images/side/fence2.png",
         "src/images/dialogs/dialog1.png"*/
@@ -128,6 +127,15 @@ namespace NSTextureConstants
     const size_t width = 48;
     const size_t heroX = 10;
     const size_t heroY = 1;
+    const size_t numEm = 10;
+    const std::vector<size_t> enemyY = 
+    {
+        3,10,20,31,10,10,18,24,35,37
+    };
+    const std::vector<size_t> enemyX = 
+    {
+        3, 8, 5, 6,16,18,21,15,21,13
+    };
 
     const size_t grass = 0;
     const size_t stone = 1;
@@ -152,7 +160,15 @@ ErField::ErField()
 {
     createTexture();
     createText();
+    Enemy* en;
+    for (size_t i = 0; i < NSTextureConstants::numEm; ++i)
+    {
+        en = new Enemy();
+        enemies.push_back(*en);
+    }
+
     setHeroPosition();
+    delete en;
 }
 
 void ErField::textSetings()
@@ -236,6 +252,11 @@ void ErField::setHeroPosition()
 {
     hero.setPosition(NSTextureConstants::heroX * NSTextureConstants::height,
         NSTextureConstants::heroY * NSTextureConstants::width);
+    for (size_t i = 0; i < enemies.size(); ++i) 
+    {
+        enemies[i].setPosition(NSTextureConstants::enemyX[i] * NSTextureConstants::height,
+            NSTextureConstants::enemyY[i] * NSTextureConstants::width);
+    }
 }
 
 void ErField::setHeroPosition(size_t x, size_t y)
@@ -246,6 +267,41 @@ void ErField::setHeroPosition(size_t x, size_t y)
 void ErField::setMisiom(size_t mision)
 {
     currentMission = mision;
+}
+
+void ErField::moveEn(float gameTime)
+{
+    if (atc)
+    {
+        for (size_t i = 0; i < enemies.size(); ++i)
+        {
+            if (hero.getX() > enemies[i].getX())
+            {
+                enemies[i].setWay("DOWN");
+                enemies[i].move(gameTime);
+            }
+            else if (hero.getX() < enemies[i].getX())
+            {
+                enemies[i].setWay("UP");
+                enemies[i].move(gameTime);
+            }
+            if (hero.getY() > enemies[i].getY())
+            {
+                enemies[i].setWay("RIGHT");
+                enemies[i].move(gameTime);
+            }
+            else if (hero.getY() < enemies[i].getY())
+            {
+                enemies[i].setWay("LEFT");
+                enemies[i].move(gameTime);
+            }
+        }
+        
+    }
+    /*    const std::string LEFT = "LEFT";
+    const std::string RIGHT = "RIGHT";
+    const std::string UP = "UP";
+    const std::string DOWN = "DOWN";*/
 }
 
 bool ErField::checkPosition(size_t x)
@@ -346,17 +402,14 @@ void ErField::textSetingsAdd()
 
 void ErField::increaseMission()
 {
-    if (currentMission == 0)
-    {
-        currentMission = 1;
-    }
+    atc = true;
 }
 
 const sf::Sprite& ErField::getDialog()
 {
-    textureHandler.setPosition(NSTextureConstants::dialog,
-        0, getViewX());
-    return textureHandler.getSprite(NSTextureConstants::dialog);
+    atc = false;
+    setHeroPosition();
+    return textureHandler.getSprite(NSTextureConstants::grass);
 }
 
 Text ErField::getMission()
