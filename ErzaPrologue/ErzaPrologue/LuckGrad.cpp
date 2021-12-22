@@ -20,7 +20,9 @@ namespace NSTexturePaths
         "src/images/houses/house2_night.png",
         "src/images/activeElements/pointer.png",
         "src/images/side/wall_day.png",
-        "src/images/dialogs/dialog1.png"
+        "src/images/activeElements/npc1.png",
+        "src/images/dialogs/dialog2.png",
+        "src/images/dialogs/dialog3.png"
     };
 
 
@@ -36,10 +38,9 @@ namespace NSMenuText
     };
     const std::vector<std::string> misisions =
     {
-        "Find a hut in the woods",
-        "Find way to Luckgrad"
+        "SPEAK WITH MANS",
+        "Find way to ERField"
     };
-
     const sf::Color   activeColor = sf::Color::Black;
     const sf::Color   simpleColor = sf::Color::Black;
 
@@ -98,7 +99,7 @@ namespace NSLvlInfo
       {1,2,2,2,2,2,0,0,4,4,0,0,0,0,0,1,2,2,2,2,2,2,2,2,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1},
       {1,0,0,0,0,2,0,5,0,0,0,5,0,0,0,0,2,4,5,4,5,4,5,2,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1},
       {1,0,0,0,0,2,0,0,0,1,0,0,4,0,5,0,2,5,1,1,1,1,4,2,0,0,0,0,0,2,0,1,0,4,0,2,2,2,2,2,2,2,2,1},
-      {1,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,2,4,1,0,0,1,5,2,0,0,0,0,0,2,5,0,0,1,0,2,2,1,0,4,0,0,0,1},
+      {1,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,2,4,1,10,10,1,5,2,0,0,0,0,0,2,5,0,0,1,0,2,2,1,0,4,0,0,0,1},
       {1,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,5,1,0,0,1,4,2,2,2,2,2,2,2,0,4,0,0,0,2,2,0,5,0,5,1,0,1},
       {1,0,1,0,0,0,1,0,1,0,2,0,4,0,4,0,2,4,1,2,2,1,5,2,0,5,0,5,0,2,1,0,1,0,0,2,2,0,1,0,0,0,0,1},
       {1,0,0,1,0,0,0,0,0,0,2,1,4,4,1,4,2,5,1,2,2,1,4,2,5,0,5,0,5,2,0,5,0,4,0,2,2,5,0,4,1,4,0,1},
@@ -135,7 +136,7 @@ namespace NSTextureConstants
     const size_t path2 = 3;
     const size_t fence = 8;
     const size_t fenc2 = 9;
-    const size_t dialog = 10;
+    const size_t dialog = 11;
 
 }
 
@@ -345,6 +346,11 @@ void LuckGrad::textSetingsAdd()
 
 void LuckGrad::increaseMission()
 {
+    if (currentFrase == 0)
+    {
+        currentFrase = 1;
+    }
+
     if (currentMission == 0)
     {
         currentMission = 1;
@@ -353,9 +359,9 @@ void LuckGrad::increaseMission()
 
 const sf::Sprite& LuckGrad::getDialog()
 {
-    textureHandler.setPosition(NSTextureConstants::dialog,
-        0, getViewX());
-    return textureHandler.getSprite(NSTextureConstants::dialog);
+    textureHandler.setPosition(NSTextureConstants::dialog + currentFrase,
+        5 * 48, 16 * 48);
+    return textureHandler.getSprite(NSTextureConstants::dialog + currentFrase);
 }
 
 Text LuckGrad::getMission()

@@ -39,5 +39,6 @@ private:
 	int tempCoordinate;
 	size_t currentMission = 0;
 	TextHandler mission;
+	int currentFrase = 0;
 };
 
