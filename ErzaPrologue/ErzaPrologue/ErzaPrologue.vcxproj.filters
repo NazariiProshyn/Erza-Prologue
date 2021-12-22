@@ -57,6 +57,15 @@
     <ClCompile Include="Save.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LuckGrad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ErField.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Humans.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -96,6 +105,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Save.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LuckGrad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ErField.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Humans.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

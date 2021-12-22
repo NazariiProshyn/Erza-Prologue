@@ -4,7 +4,11 @@ enum class EListOfLvls
 {
     MENULVL       = 0,
 	SAVES         = 1,
-	HUTINTHEWOODS = 2
+	HUTINTHEWOODS = 2,
+	LUCKGRAD      = 3,
+	ERFIELD       = 4,
+	HUMANS        = 5,
+	END           = 7
 };
 enum class EListOfAction
 {
@@ -31,6 +35,15 @@ const sf::Sprite& LvlsHandler::getBackground(size_t x, size_t y)
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getBackground(x, y);
 		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getBackground(x, y);
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getBackground(x, y);
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getBackground(x, y);
+		break;
 	case static_cast<int>(EListOfLvls::SAVES):
 		return savedGames.getBackground(x, y);
 		break;
@@ -46,6 +59,15 @@ const sf::Sprite& LvlsHandler::getObjects(size_t x, size_t y)
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getObjects(x, y);
 		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getObjects(x, y);
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getObjects(x, y);
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getObjects(x, y);
+		break;
 	default:
 		break;
 	}
@@ -57,6 +79,15 @@ const sf::Sprite& LvlsHandler::getHero()
 	{
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getHeroSprite();
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getHeroSprite();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getHeroSprite();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getHeroSprite();
 		break;
 	default:
 		break;
@@ -76,6 +107,15 @@ bool LvlsHandler::checkForObjects(size_t x, size_t y)
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.checkForObjects(x, y);
 		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.checkForObjects(x, y);
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.checkForObjects(x, y);
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.checkForObjects(x, y);
+		break;
 	default:
 		break;
 	}
@@ -93,6 +133,15 @@ size_t LvlsHandler::getNumOfItems() const
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getNumOfItems();
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getNumOfItems();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getNumOfItems();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getNumOfItems();
 		break;
 	default:
 		break;
@@ -113,6 +162,15 @@ size_t LvlsHandler::getNumOfAddItems() const
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getNumOfAddItems();
 		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getNumOfAddItems();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getNumOfAddItems();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getNumOfAddItems();
+		break;
 	default:
 		break;
 	}
@@ -130,6 +188,15 @@ size_t LvlsHandler::getRaws() const
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getRaws();
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getRaws();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getRaws();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getRaws();
 		break;
 	default:
 		break;
@@ -149,6 +216,15 @@ size_t LvlsHandler::getColumns() const
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getColumns();
 		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getColumns();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getColumns();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getColumns();
+		break;
 	default:
 		break;
 	}
@@ -166,6 +242,15 @@ bool LvlsHandler::checkPosition(size_t x)
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.checkPosition(x);
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.checkPosition(x);
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.checkPosition(x);
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.checkPosition(x);
 		break;
 	default:
 		break;
@@ -186,6 +271,15 @@ Text LvlsHandler::getText(size_t num) const
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getText(num);
 		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getText(num);
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getText(num);
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getText(num);
+		break;
 	default:
 		break;
 	}
@@ -203,6 +297,15 @@ Text LvlsHandler::getAddText(size_t num) const
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getAddText(num);
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getAddText(num);
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getAddText(num);
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getAddText(num);
 		break;
 	default:
 		break;
@@ -247,6 +350,21 @@ void LvlsHandler::eventHandler(const sf::Event& event, float time)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F5)) {
 		keyF5();
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+		activeHut();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+		activeLuck();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+		activeERF();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
+		activeHUM();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) {
+		activeEND();
+	}
 }
 
 void LvlsHandler::activeLvlMenu()
@@ -264,6 +382,26 @@ void LvlsHandler::activeSaves()
 	activeLvl = static_cast<int>(EListOfLvls::SAVES);
 }
 
+void LvlsHandler::activeLuck()
+{
+	activeLvl = static_cast<int>(EListOfLvls::LUCKGRAD);
+}
+
+void LvlsHandler::activeERF()
+{
+	activeLvl = static_cast<int>(EListOfLvls::ERFIELD);
+}
+
+void LvlsHandler::activeHUM()
+{
+	activeLvl = static_cast<int>(EListOfLvls::HUMANS);
+}
+
+void LvlsHandler::activeEND()
+{
+	activeLvl = static_cast<int>(EListOfLvls::END);
+}
+
 void LvlsHandler::loadgame()
 {
 	save.load(savedGames.getSave());
@@ -274,6 +412,21 @@ void LvlsHandler::loadgame()
 		hutInTheWoods.setHeroPosition(save.getX(),
 			save.getY());
 		hutInTheWoods.setMisiom(save.getTask());
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		luckgrad.setHeroPosition(save.getX(),
+			save.getY());
+		luckgrad.setMisiom(save.getTask());
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		erField.setHeroPosition(save.getX(),
+			save.getY());
+		erField.setMisiom(save.getTask());
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		humans.setHeroPosition(save.getX(),
+			save.getY());
+		humans.setMisiom(save.getTask());
 		break;
 	default:
 		break;
@@ -286,6 +439,15 @@ const sf::Sprite& LvlsHandler::getDialog()
 	{
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getDialog();
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getDialog();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getDialog();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getDialog();
 		break;
 	default:
 		break;
@@ -307,6 +469,15 @@ int LvlsHandler::getViewX()
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getViewX();
 		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getViewX();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getViewX();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getViewX();
+		break;
 	default:
 		break;
 	}
@@ -326,6 +497,15 @@ int LvlsHandler::getViewY()
 		break;
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getViewY();
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getViewY();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getViewY();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getViewY();
 		break;
 	default:
 		break;
@@ -347,6 +527,21 @@ void LvlsHandler::keyUp(float time)
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		hutInTheWoods.setWay("UP");
 		hutInTheWoods.move(time);
+		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		luckgrad.setWay("UP");
+		luckgrad.move(time);
+		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		erField.setWay("UP");
+		erField.move(time);
+		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		humans.setWay("UP");
+		humans.move(time);
 		menu.textSetings();
 		break;
 	default:
@@ -371,6 +566,21 @@ void LvlsHandler::keyDown(float time)
 		hutInTheWoods.move(time);
 		menu.textSetings();
 		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		luckgrad.setWay("DOWN");
+		luckgrad.move(time);
+		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		erField.setWay("DOWN");
+		erField.move(time);
+		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		humans.setWay("DOWN");
+		humans.move(time);
+		menu.textSetings();
+		break;
 	default:
 		break;
 	}
@@ -385,6 +595,21 @@ void LvlsHandler::keyRight(float time)
 		hutInTheWoods.move(time);
 		menu.textSetings();
 		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		luckgrad.setWay("RIGHT");
+		luckgrad.move(time);
+		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		erField.setWay("RIGHT");
+		erField.move(time);
+		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		humans.setWay("RIGHT");
+		humans.move(time);
+		menu.textSetings();
+		break;
 	default:
 		break;
 	}
@@ -397,6 +622,21 @@ void LvlsHandler::keyLeft(float time)
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		hutInTheWoods.setWay("LEFT");
 		hutInTheWoods.move(time);
+		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		luckgrad.setWay("LEFT");
+		luckgrad.move(time);
+		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		erField.setWay("LEFT");
+		erField.move(time);
+		menu.textSetings();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		humans.setWay("LEFT");
+		humans.move(time);
 		menu.textSetings();
 		break;
 	default:
@@ -432,6 +672,15 @@ void LvlsHandler::keyT()
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.increaseMission();
 		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.increaseMission();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.increaseMission();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.increaseMission();
+		break;
 	default:
 		break;
 	}
@@ -443,6 +692,15 @@ Text LvlsHandler::keyTab()
 	{
 	case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
 		return hutInTheWoods.getMission();
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		return luckgrad.getMission();
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		return erField.getMission();
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		return humans.getMission();
 		break;
 	default:
 		break;
@@ -458,6 +716,21 @@ void LvlsHandler::keyF5()
 		savedGames.loadInfo();
 		 save.save(static_cast<size_t>(EListOfLvls::HUTINTHEWOODS),savedGames.getNumOfSaves(),
 			 hutInTheWoods.getX(), hutInTheWoods.getY(), hutInTheWoods.getTask());
+		break;
+	case static_cast<int>(EListOfLvls::LUCKGRAD):
+		savedGames.loadInfo();
+		save.save(static_cast<size_t>(EListOfLvls::LUCKGRAD), savedGames.getNumOfSaves(),
+			luckgrad.getX(), luckgrad.getY(), luckgrad.getTask());
+		break;
+	case static_cast<int>(EListOfLvls::ERFIELD):
+		savedGames.loadInfo();
+		save.save(static_cast<size_t>(EListOfLvls::ERFIELD), savedGames.getNumOfSaves(),
+			erField.getX(), erField.getY(), erField.getTask());
+		break;
+	case static_cast<int>(EListOfLvls::HUMANS):
+		savedGames.loadInfo();
+		save.save(static_cast<size_t>(EListOfLvls::HUMANS), savedGames.getNumOfSaves(),
+			humans.getX(), humans.getY(), humans.getTask());
 		break;
 	default:
 		break;

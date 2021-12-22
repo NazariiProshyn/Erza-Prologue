@@ -3,6 +3,9 @@
 #include "HutInTheWoods.h"
 #include "SavedGames.h"
 #include "Save.h"
+#include "LuckGrad.h"
+#include "ErField.h"
+#include "Humans.h"
 class LvlsHandler
 {
 public:
@@ -41,7 +44,10 @@ private:
 	int activeLvl = 0;
 	Menu menu;
 	HutInTheWoods hutInTheWoods;
-	SavedGames savedGames;
+	LuckGrad      luckgrad;
+	SavedGames    savedGames;
+	ErField       erField;
+	Humans        humans;
 	Save save;
 	void keyUp(float time);
 	void keyDown(float time);
@@ -52,6 +58,11 @@ private:
 	void activeLvlMenu();
 	void activeHut();
 	void activeSaves();
+	void activeLuck();
+	void activeERF();
+	void activeHUM();
+	void activeEND();
+
 	bool openWindow = true;
 	bool renderWindow = false;
 	void loadgame();
