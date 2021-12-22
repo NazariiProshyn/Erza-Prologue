@@ -50,14 +50,15 @@ void Game::Run()
             {
                 for (size_t j = 0; j < lvlsHandler.getColumns(); ++j)
                 {
-                    if (lvlsHandler.checkForObjects(i, j))
-                    {
-                        window.draw(lvlsHandler.getObjects(i, j));
-                    }
                     if (lvlsHandler.checkPosition(i) && (j == (lvlsHandler.getColumns() - 1)))
                     {
                         window.draw(lvlsHandler.getHero());
                     }
+                    if (lvlsHandler.checkForObjects(i, j))
+                    {
+                        window.draw(lvlsHandler.getObjects(i, j));
+                    }
+
                 }
             }
 

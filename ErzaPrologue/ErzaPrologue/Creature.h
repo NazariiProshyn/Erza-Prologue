@@ -26,7 +26,7 @@ protected:
 	size_t  currentWay = 0;
 	size_t X;
 	size_t Y;
-	const float speed = 0.17;
+	const float speed = 0.27;
 	const float animationSpeed = 0.007;
 };
 
