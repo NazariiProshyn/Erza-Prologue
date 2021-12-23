@@ -350,6 +350,10 @@ void LvlsHandler::eventHandler(const sf::Event& event, float time)
 		activeLvl == static_cast<int>(EListOfLvls::SAVES)) {
 		loadgame();
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::RShift) &&
+		activeLvl == static_cast<int>(EListOfLvls::MENULVL)) {
+		loadLastgame();
+	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {
 		activeLvlMenu();
 	}
@@ -440,6 +444,41 @@ void LvlsHandler::loadgame()
 	default:
 		break;
 	}
+}
+
+void LvlsHandler::loadLastgame()
+{
+	if(savedGames.getNumOfSaves() > 0)
+	{
+		save.load(savedGames.getNumOfSaves() - 1);
+		activeLvl = save.getLvl();
+		switch (activeLvl)
+		{
+		case static_cast<int>(EListOfLvls::HUTINTHEWOODS):
+			hutInTheWoods.setHeroPosition(save.getX(),
+				save.getY());
+			hutInTheWoods.setMisiom(save.getTask());
+			break;
+		case static_cast<int>(EListOfLvls::LUCKGRAD):
+			luckgrad.setHeroPosition(save.getX(),
+				save.getY());
+			luckgrad.setMisiom(save.getTask());
+			break;
+		case static_cast<int>(EListOfLvls::ERFIELD):
+			erField.setHeroPosition(save.getX(),
+				save.getY());
+			erField.setMisiom(save.getTask());
+			break;
+		case static_cast<int>(EListOfLvls::HUMANS):
+			humans.setHeroPosition(save.getX(),
+				save.getY());
+			humans.setMisiom(save.getTask());
+			break;
+		default:
+			break;
+		}
+	}
+
 }
 
 const sf::Sprite& LvlsHandler::getDialog()

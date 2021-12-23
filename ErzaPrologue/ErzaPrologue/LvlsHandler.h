@@ -68,5 +68,6 @@ private:
 	bool openWindow = true;
 	bool renderWindow = false;
 	void loadgame();
+	void loadLastgame();
 };
 
