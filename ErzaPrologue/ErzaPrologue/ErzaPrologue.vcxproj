@@ -158,6 +158,7 @@
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Humans.cpp" />
     <ClCompile Include="HutInTheWoods.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="LuckGrad.cpp" />
     <ClCompile Include="Lvl.cpp" />
     <ClCompile Include="LvlsHandler.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="TextHandler.cpp" />
     <ClCompile Include="Textrure.cpp" />
     <ClCompile Include="TextureHandler.cpp" />
+    <ClCompile Include="UtilsFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Creature.h" />
@@ -178,6 +180,7 @@
     <ClInclude Include="Hero.h" />
     <ClInclude Include="Humans.h" />
     <ClInclude Include="HutInTheWoods.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="LuckGrad.h" />
     <ClInclude Include="Lvl.h" />
     <ClInclude Include="LvlsHandler.h" />
@@ -188,6 +191,7 @@
     <ClInclude Include="TextHandler.h" />
     <ClInclude Include="Textrure.h" />
     <ClInclude Include="TextureHandler.h" />
+    <ClInclude Include="UtilsFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

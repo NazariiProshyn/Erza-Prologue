@@ -156,10 +156,18 @@ namespace NSViewCoordinates
     const unsigned int coef = 3;
 }
 
+namespace
+{
+    std::string kLogFilePath = "log/erFieldLog.txt";
+}
+
+Logger ErField::mLogger(kLogFilePath);
+
 ErField::ErField()
 {
     createTexture();
     createText();
+    logBackground();
     Enemy* en;
     for (size_t i = 0; i < NSTextureConstants::numEm; ++i)
     {
@@ -416,4 +424,35 @@ Text ErField::getMission()
 {
     mission.setPosition(getViewX(), getViewY(), NSMenuAddText::stepBetweenItems);
     return mission.getText(currentMission);
+}
+
+void ErField::logBackground()
+{
+    for (int x = 0; x < NSLvlInfo::raws; x++) {
+        for (int y = 0; y < NSLvlInfo::columns; y++) {
+            switch (NSLvlInfo::lvl[x][y])
+            {
+            case NSTextureConstants::grass:
+                mLogger.logMessage(" Grass on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::stone:
+                mLogger.logMessage(" Stone on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::path1:
+                mLogger.logMessage(" Path on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::path2:
+                mLogger.logMessage(" Second path on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::fence:
+                mLogger.logMessage(" Fence on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::fenc2:
+                mLogger.logMessage("\n Second Fence on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            default:
+                break;
+            }
+        }
+    }
 }

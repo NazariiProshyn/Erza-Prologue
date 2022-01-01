@@ -1,10 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Logger.h"
 
 class Textrure
 {
 public:
-	Textrure()  = default;
+	Textrure() = default;
 	~Textrure() = default;
 	
 	void setTexture(const std::string& pathToImage);
@@ -15,6 +16,6 @@ private:
 	sf::Image image;
 	sf::Texture texture;
 	sf::Sprite sprite;
-
+	static Logger mLogger;
 };
 

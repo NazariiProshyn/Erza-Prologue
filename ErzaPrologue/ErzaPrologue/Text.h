@@ -1,9 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Logger.h"
+
 class Text
 {
 public:
-	Text()  = default;
+	Text() = default;
 	~Text() = default;
 	void setSize(int size) { text.setCharacterSize(size); }
 	void setBorderColour(const sf::Color& colour) { text.setOutlineColor(colour); };
@@ -17,5 +19,6 @@ public:
 private:
 	sf::Text text;
 	sf::Font font;
+	static Logger mLogger;
 };
 

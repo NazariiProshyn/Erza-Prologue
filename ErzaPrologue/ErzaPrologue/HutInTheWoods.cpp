@@ -145,11 +145,19 @@ namespace NSViewCoordinates
     const unsigned int coef  = 3;
 }
 
+namespace
+{
+    std::string kLogFilePath = "log/hutInTheWoodLog.txt";
+}
+
+Logger HutInTheWoods::mLogger(kLogFilePath);
+
 HutInTheWoods::HutInTheWoods()
 {
     createTexture();
     createText();
     setHeroPosition();
+    logBackground();
 }
 
 void HutInTheWoods::textSetings()
@@ -203,6 +211,37 @@ const sf::Sprite& HutInTheWoods::getBackground(size_t x, size_t y)
     return textureHandler.getSprite(NSTextureConstants::grass);
 }
 
+void HutInTheWoods::logBackground()
+{
+    for (int x = 0; x < NSLvlInfo::raws; x++) {
+        for (int y = 0; y < NSLvlInfo::columns; y++) {
+            switch (NSLvlInfo::lvl[x][y])
+            {
+            case NSTextureConstants::grass:
+                mLogger.logMessage(" Grass on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::stone:
+                mLogger.logMessage(" Stone on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::path1:
+                mLogger.logMessage(" Path on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::path2:
+                mLogger.logMessage(" Second path on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::fence:
+                mLogger.logMessage(" Fence on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::fenc2:
+                mLogger.logMessage("\n Second Fence on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            default:
+                break;
+            }
+        }
+    }
+}
+
 const sf::Sprite& HutInTheWoods::getObjects(size_t x, size_t y)
 {
         textureHandler.setPosition(NSLvlInfo::lvl[x][y], x * NSTextureConstants::height,
@@ -233,6 +272,8 @@ void HutInTheWoods::setHeroPosition()
 {
     hero.setPosition(NSTextureConstants::heroX * NSTextureConstants::height,
         NSTextureConstants::heroY * NSTextureConstants::width);
+    mLogger.logMessage("Hero spawned on position: x = " +
+        std::to_string(hero.getY()) + " y = " + std::to_string(hero.getX()));
 }
 
 void HutInTheWoods::setHeroPosition(size_t x, size_t y)
@@ -299,6 +340,7 @@ void HutInTheWoods::createTexture()
     {
         textureHandler.addTexture(NSTexturePaths::texturePaths[i]);
     }
+    mLogger.logMessage("Textures loaded for level Hut In The Wood");
 }
 
 void HutInTheWoods::createText()
@@ -320,6 +362,8 @@ void HutInTheWoods::createText()
     textSetingsAdd();
     textSetings();
     misiisonSettings();
+
+    mLogger.logMessage("Text initialized for level Hut In The Wood");
 }
 
 void HutInTheWoods::misiisonSettings()

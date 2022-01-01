@@ -1,4 +1,4 @@
-#include "TextHandler.h"
+#include "TextHandler.h" 
 void TextHandler::setFont(const std::string& font)
 {
 	for(size_t i = 0; i < textList.size(); ++i)

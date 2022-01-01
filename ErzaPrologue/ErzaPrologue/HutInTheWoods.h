@@ -1,5 +1,7 @@
 #pragma once
 #include "Lvl.h"
+#include "Logger.h"
+
 class HutInTheWoods : public Lvl
 {
 public:
@@ -14,6 +16,7 @@ public:
 	void setHeroPosition();
 	void setHeroPosition(size_t x, size_t y);
 	void setMisiom(size_t mision);
+	void logBackground();
 
 	void move(float gameTime) { hero.move(gameTime); };
 	void setWay(const std::string& way) { hero.setWay(way); };
@@ -39,6 +42,7 @@ private:
 	int tempCoordinate;
 	size_t currentMission = 0;
 	TextHandler mission;
+	static Logger mLogger;
 };
 
 

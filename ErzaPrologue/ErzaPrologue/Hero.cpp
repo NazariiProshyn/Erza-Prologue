@@ -135,7 +135,7 @@ void Hero::moveLeft()
     {
         currentFrame = NSTextureConstants::minTexture;
     }
-    Y = Y - (speed * time);
+    Y = Y < speed* time ? 0 : Y - speed * time;
 }
 
 void Hero::moveRight()
@@ -155,7 +155,7 @@ void Hero::moveUp()
     {
         currentFrame = NSTextureConstants::minTexture;
     }
-    X = X - (speed * time);
+    X = X < speed* time ? 0 : X - speed * time;
 }
 
 void Hero::moveDown()

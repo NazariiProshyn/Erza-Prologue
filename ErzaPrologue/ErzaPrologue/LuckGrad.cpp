@@ -148,11 +148,19 @@ namespace NSViewCoordinates
     const unsigned int coef = 3;
 }
 
+namespace
+{
+    std::string kLogFilePath = "log/luckGradLog.txt";
+}
+
+Logger LuckGrad::mLogger(kLogFilePath);
+
 LuckGrad::LuckGrad()
 {
     createTexture();
     createText();
     setHeroPosition();
+    logBackground();
 }
 
 void LuckGrad::textSetings()
@@ -368,4 +376,35 @@ Text LuckGrad::getMission()
 {
     mission.setPosition(getViewX(), getViewY(), NSMenuAddText::stepBetweenItems);
     return mission.getText(currentMission);
+}
+
+void LuckGrad::logBackground()
+{
+    for (int x = 0; x < NSLvlInfo::raws; x++) {
+        for (int y = 0; y < NSLvlInfo::columns; y++) {
+            switch (NSLvlInfo::lvl[x][y])
+            {
+            case NSTextureConstants::grass:
+                mLogger.logMessage(" Grass on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::stone:
+                mLogger.logMessage(" Stone on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::path1:
+                mLogger.logMessage(" Path on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::path2:
+                mLogger.logMessage(" Second path on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::fence:
+                mLogger.logMessage(" Fence on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            case NSTextureConstants::fenc2:
+                mLogger.logMessage("\n Second Fence on position x: " + std::to_string(x) + " y: " + std::to_string(y));
+                break;
+            default:
+                break;
+            }
+        }
+    }
 }
